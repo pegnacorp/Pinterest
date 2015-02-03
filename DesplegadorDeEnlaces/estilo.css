@@ -1,0 +1,22 @@
+#enlace{
+	background-color: #FFFFFF;
+	border-radius: 5px;
+	margin:2%;
+	border: 1px solid #D8D8D8;
+	overflow: hidden;
+	float:left;
+	width:25%;
+	height:25%;
+}
+body {
+  	background-color: #F2F2F2;
+  }
+ #video{
+ 	float:left;
+ 	width:80%;
+	height:80%;
+ 
+}
+ #imagen{
+ 	float:left;
+ }
