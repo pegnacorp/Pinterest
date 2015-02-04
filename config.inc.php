@@ -1,7 +1,7 @@
 <?php 
 //Par�metros necesarios para la conexi�n con la base de datos
 $GLOBALS["servidor"] = "localhost"; 
-$GLOBALS["usuario"] = "root";  
+$GLOBALS["usuario"] = "";  
 $GLOBALS["contrasena"] = "";  
 $GLOBALS["base_datos"] = "pinterestelar";
 
