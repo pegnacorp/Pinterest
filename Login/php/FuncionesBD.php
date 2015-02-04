@@ -8,12 +8,9 @@ function conectarBD(){
 	$conexion = conectar();
 	
 }
-
 function verificarLosDatos($datosUsuario){
-	
 	global $conexion;
 	$resultados = verificarDatos($conexion, $datosUsuario);
-
 	return $resultados;
 }
 
