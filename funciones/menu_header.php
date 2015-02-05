@@ -18,6 +18,10 @@ function listarMenu(){
             $menu .= "<a class=\"menu\" href=\"index.php\">";
             $menu .= "INICIO";
             $menu .= "</a>";
+            
+            $menu .= "<a class=\"menu\" href=\"Bucador.php\">";
+            $menu .= "BUSCAR USUARIO";
+            $menu .= "</a>";
  	
             $menu .= "<a class=\"menu\" href=\"acerca.php\">";
             $menu .= "ACERCA";
@@ -26,6 +30,10 @@ function listarMenu(){
     }else{
         $menu .= "<a class=\"menu\" href=\"index.php\">";
         $menu .= "INICIO";
+        $menu .= "</a>";
+        
+        $menu .= "<a class=\"menu\" href=\"Bucador.php\">";
+        $menu .= "BUSCAR USUARIO";
         $menu .= "</a>";
  	
         $menu .= "<a class=\"menu\" href=\"acerca.php\">";
@@ -43,8 +51,8 @@ function listarPanel(){
             $panel .= "<ul id=\"nombre_usuario\">";
             $panel .= "<li><a href=\"#\">Usuario:".$rolArray[1].".</a>";
             $panel .= "<ul>";
-            $panel .= "<li class=\"elem_usuario\"> <a href=\"cuenta_usuario.php?cid_usuario=$rolArray[2]\" class=\"link_usuario\">CUENTA</a></li>";
-            $panel .= "<li class=\"elem_usuario\"> <a href=\"funciones/cerrar_sesion.php\" class=\"link_usuario\">SALIR</a></li>";
+            $panel .= "<li class=\"elem_usuario\"><a href=\"cuenta_usuario.php?cid_usuario=$rolArray[2]\" class=\"link_usuario\">CUENTA</a></li>";
+            $panel .= "<li class=\"elem_usuario\"><a href=\"funciones/cerrar_sesion.php\" class=\"link_usuario\">SALIR</a></li>";
             $panel .= "</ul>";
             $panel .= "</li>";
             $panel .= "</ul>";
@@ -60,11 +68,11 @@ function listarPanel(){
             $panel .= "</ul>";
         }
     }else{
-        $panel .= "<a id=\"registrarse\" class=\"myButton\" value=\"Registrarse\" href=\"Registro/registro.php\">";
+        $panel .= "<a id=\"registrarse\" class=\"myButton\" value=\"Registrarse\" href=\"Registro.php\">";
         $panel .= "REGISTRARSE";
         $panel .= "</a>";
         
-        $panel .= "<a id=\"identificarse\" class=\"myButton\" value=\"Identificarse\" href=\"Login/Login.php\">";
+        $panel .= "<a id=\"identificarse\" class=\"myButton\" value=\"Identificarse\" href=\"Login.php\">";
         $panel .= "INGRESAR";
         $panel .= "</a>";
     }

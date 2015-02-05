@@ -1,0 +1,114 @@
+body{
+	background-image: url('planetas1.jpg');
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+#barraSuperior{
+	width: 100%;
+	height: 100px;	
+	color: #060d63;
+	font-size: 100px;
+	text-align: center;
+}
+
+#menu{
+	margin-top: 15%;
+	width: 50%;
+	height: 45%;
+	margin-left: 25%;
+	background-color: transparent;
+	float: left;
+	position: absolute;
+	border-top: none;
+	border: 5px solid transparent;
+	-webkit-border-image: url(blueborder.gif) 30 30 stretch; /* Safari 3.1-5 */
+    -o-border-image: url(blueborder.gif) 30 30 stretch; /* Opera 11-12.1 */
+    border-image: url(blueborder.gif) 30 30 stretch;
+}
+
+#tituloMenu{
+	font-size: 35px;
+	color: #e75f03;
+}
+
+.input{
+	background-color: white;	
+}
+
+#formSection{
+	text-align: center;
+}
+
+input{	
+	width: 50%;
+	border: solid;
+	border-radius: 25px;
+	border-color: #1014e1;
+	border-width: 2px;
+	height: 30px;
+	text-indent: 30px;	
+	padding-left: 10px;
+	padding-right: 50px;
+	font-size: 16px;	
+}
+
+input[type="text"]:hover{
+	background-color: #ecd54c;
+}
+input[type="text"]:focus{
+	background-color: #e7c709;
+}
+
+input[type="submit"]{
+	background-color: #1014e1;
+	color: white;
+	font-size: 18px;
+	border-color: #010394;
+}
+
+input[type="submit"]:hover{
+	background-color: #010394;
+	font-size: 20px;
+}
+
+
+::-webkit-input-placeholder {
+   color: red;   
+   padding-left: 20px;
+   font-size: 17px;
+}
+:-moz-placeholder { 
+   color: red;  
+}
+::-moz-placeholder { 
+   color: red;  
+}
+:-ms-input-placeholder {  
+   color: red;  
+}
+
+.headerDivider {
+     border-left:1px solid #38546d; 
+     border-right:1px solid #16222c; 
+     height:80px;
+     position:absolute;
+     right:249px;
+     top:10px; 
+}
+
+#nombreUsuario{
+	background-image: url("userIcon.png");
+	background-repeat: no-repeat;	
+}
+#correoUsuario{
+	background-image: url("emailIcon.png");
+	background-repeat: no-repeat;	
+}
+#contraseniaUsuario{
+	background-image: url("passIcon.png");
+	background-repeat: no-repeat;	
+}
+#mensaje{
+	color: #e75f03;
+	font-size: 20px;
+}

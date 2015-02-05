@@ -1,6 +1,6 @@
 <?php  
 include_once("config.inc.php"); 
-include_once("acceder_base_datos.php");
+include_once("funciones/acceder_base_datos.php");
 
 function validarSesion(){
 if(!isset($_SESSION["cidusuario"])){
