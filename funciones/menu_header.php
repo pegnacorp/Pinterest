@@ -19,7 +19,7 @@ function listarMenu(){
             $menu .= "INICIO";
             $menu .= "</a>";
             
-            $menu .= "<a class=\"menu\" href=\"Bucador.php\">";
+            $menu .= "<a class=\"menu\" href=\"Buscador\Bucador.php\">";
             $menu .= "BUSCAR USUARIO";
             $menu .= "</a>";
  	
@@ -32,7 +32,7 @@ function listarMenu(){
         $menu .= "INICIO";
         $menu .= "</a>";
         
-        $menu .= "<a class=\"menu\" href=\"Bucador.php\">";
+        $menu .= "<a class=\"menu\" href=\"Buscador\Bucador.php\">";
         $menu .= "BUSCAR USUARIO";
         $menu .= "</a>";
  	
@@ -68,11 +68,11 @@ function listarPanel(){
             $panel .= "</ul>";
         }
     }else{
-        $panel .= "<a id=\"registrarse\" class=\"myButton\" value=\"Registrarse\" href=\"Registro.php\">";
+        $panel .= "<a id=\"registrarse\" class=\"myButton\" value=\"Registrarse\" href=\"Registro\Registro.php\">";
         $panel .= "REGISTRARSE";
         $panel .= "</a>";
         
-        $panel .= "<a id=\"identificarse\" class=\"myButton\" value=\"Identificarse\" href=\"Login.php\">";
+        $panel .= "<a id=\"identificarse\" class=\"myButton\" value=\"Identificarse\" href=\"login\Login.php\">";
         $panel .= "INGRESAR";
         $panel .= "</a>";
     }

@@ -16,7 +16,11 @@
 			if ($resultados['hayCoincidencias']) {
 				$coincidencias = $resultados['coincidencias'];
 				$row = $coincidencias->fetch_assoc();
-				$mensaje = "Bienvenido: " . $row['Nombre'];
+
+				session_start();
+           		$_SESSION['nombre'] = $row['Nombre'];
+           		header ("Location: ../PaginaListaEnlaces/PaginaPrincipal.php");
+
 			}else{
 				$mensaje = "Esa Cuenta No Existe, Intente De Nuevo";	
 			}

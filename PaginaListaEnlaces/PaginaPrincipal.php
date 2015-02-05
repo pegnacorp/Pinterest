@@ -2,15 +2,17 @@
 <?php session_start();
 include ('php/DesplegarEnlaces.php');
 
-if (isset($_SESSION['idUsuario']) == false) {
+if (isset($_SESSION['nombre']) === false) {
 		header ("Location: ../index.php");
+
 }
 else{
-	$idUsuario = $_GET["id"];
+	$idUsuario = 1;
 	//$idUsuario = 1;//Para la prueba
 	$idLista = darIdPrimeraListaUsuario($idUsuario);
 	$enlaces = darEnlaceDeListaPorId($idLista);
-	dibujarEnlacesTotales($enlaces);
+	dibujarEnlacesTotales($enlaces,$idUsuario);
 }
 
 ?>
+

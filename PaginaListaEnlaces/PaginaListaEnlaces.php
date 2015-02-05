@@ -6,11 +6,16 @@ if (isset($_SESSION['idUsuario']) == false) {
 		header ("Location: ../index.php");
 }
 else{
-	$idUsuario = $_SESSION['idUsuario'];
+	$idUsuario = $_GET["id"];
 	//$idUsuario = 1;//Para la prueba
 	$idLista = darIdPrimeraListaUsuario($idUsuario);
 	$enlaces = darEnlaceDeListaPorId($idLista);
-	dibujarEnlacesTotales($enlaces);
+	if($enlaces === 0){
+		echo "No hay enlaces";
+	}else{
+			$nombre = darNombreUsuario($idLista);
+	dibujarDescripcionUsuario($nombre);
+	dibujarEnlacesTotales($enlaces,$idUsuario);
+	}
 }
-
 ?>
