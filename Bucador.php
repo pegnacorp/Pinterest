@@ -66,10 +66,10 @@
             <br>
             <hr>
             <section id="seccionResultados">
-                <?php if($hayCoincidencias){ while($row=$ coincidencias->fetch_assoc()) { echo "Usuario: " . $row["Nombre"]; echo "
+                <?php if($hayCoincidencias){ while($row=$coincidencias->fetch_assoc()) { echo "Usuario: " . $row["Nombre"]; echo "
                 <br>"; echo "Correo: " . $row["Correo"]; echo "
-                <br>"; echo "<a href='#'>linkASuPagina</a>"; echo "
-                <hr>"; } } ?>
+                <br>"; echo "<a href='/PaginaListaEnlaces/PaginaListaEnlaces.php?id=".$row["idUsuario"]."'>linkASuPagina</a>";
+                echo "<hr>"; } } ?>
             </section>
         </div>
         <!--Fin del cuerpo-->

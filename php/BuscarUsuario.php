@@ -4,7 +4,7 @@
 
 function seleccionarUsuarios($conexion, $datosUsuario){
 $nombreUsuario = $datosUsuario['nombre'];
-$sql = "SELECT Nombre, Correo FROM usuario WHERE Nombre = '$nombreUsuario'";
+$sql = "SELECT idUsuario, Nombre, Correo FROM usuario WHERE Nombre = '$nombreUsuario'";
 $coincidencias = $conexion->query($sql);
 
 if ($coincidencias->num_rows > 0) {

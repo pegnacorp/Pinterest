@@ -1,3 +1,4 @@
+
 #seccionBuscador {
 	text-align: center;
 }
@@ -15,4 +16,9 @@ body{
 #seccionResultados{
 	color: red;
 	font-size: 20px;
+}
+
+#div_cuerpo{
+	background-image: none;
+	padding-top: 200px;
 }
