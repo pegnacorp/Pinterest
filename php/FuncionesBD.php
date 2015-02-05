@@ -22,4 +22,31 @@ function agregarUnUsuario($datosUsuario){
 	return $usuarioAgregado;
 }
 
+function buscarUnUsuario($datosUsuario){
+	//$usuarioEncontrado = false;
+	global $conexion;
+	$resultados = seleccionarUsuarios($conexion, $datosUsuario);
+	
+	return $resultados;
+}
+
+function verificarLosDatos($datosUsuario){
+	global $conexion;
+	$resultados = verificarDatos($conexion, $datosUsuario);
+	return $resultados;
+}
+
+function agregarUnUsuario($datosUsuario){
+	$usuarioAgregado = false;
+	global $conexion;
+	if (agregarUsuario($conexion, $datosUsuario)) {
+		$usuarioAgregado = true;
+	}else{
+		$usuarioAgregado = false;
+	}
+
+
+	return $usuarioAgregado;
+}
+
 ?>

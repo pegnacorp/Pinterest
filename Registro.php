@@ -53,7 +53,7 @@
                 <br>
                 <br>
                 <section id="formSection">
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>">
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                         <input type="text" id="nombreUsuario" class="input" name="nombre" placeholder="Usuario">
                         <br>
                         <br>

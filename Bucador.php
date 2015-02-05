@@ -58,7 +58,7 @@
                 <span>Escriba el Nombre del Usuario</span>
                 <br>
                 <br>
-                <form method="post" action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>">
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                     <input type="text" placeholder="Buscar..." name="nombre">
                     <input type="submit" value="Buscar">
                 </form>
