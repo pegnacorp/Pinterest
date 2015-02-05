@@ -5,7 +5,7 @@ function verificarDatos($conexion, $datosUsuario){
 	$contraseniaUsuario = $datosUsuario['contrasenia'];
 	$cuentaExiste = false;
 
-	$sql = "SELECT Nombre FROM usuario WHERE Correo = '$correoUsuario' AND Contrasena = '$contraseniaUsuario'";
+	$sql = "SELECT Nombre, idUsuario FROM usuario WHERE Correo = '$correoUsuario' AND Contrasena = '$contraseniaUsuario'";
 	$coincidencias = $conexion->query($sql);
 	
 	if ($coincidencias->num_rows > 0) {		

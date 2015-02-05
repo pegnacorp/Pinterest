@@ -18,7 +18,7 @@
 				$row = $coincidencias->fetch_assoc();
 
 				session_start();
-           		$_SESSION['nombre'] = $row['Nombre'];
+           		$_SESSION['idUsuario'] = $row['idUsuario'];
            		header ("Location: ../PaginaListaEnlaces/PaginaPrincipal.php");
 
 			}else{

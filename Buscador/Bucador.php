@@ -45,7 +45,7 @@
 	    		    echo "<br>";
 	    		    echo "Correo:  " . $row["Correo"];
 	    		    echo "<br>";
-	    		    echo "<a href='#'>linkASuPagina</a>";
+	    		    echo "<a href='../PaginaListaEnlaces/PaginaListaEnlaces.php?id=".$row["idUsuario"]."'>linkASuPagina</a>";
 	    		    echo "<hr>";
 	    		} 
 	    	}           

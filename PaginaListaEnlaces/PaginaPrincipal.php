@@ -2,12 +2,12 @@
 <?php session_start();
 include ('php/DesplegarEnlaces.php');
 
-if (isset($_SESSION['nombre']) === false) {
+if (isset($_SESSION['idUsuario']) === false) {
 		header ("Location: ../index.php");
 
 }
 else{
-	$idUsuario = 1;
+	$idUsuario = $_SESSION['idUsuario'];
 	//$idUsuario = 1;//Para la prueba
 	$idLista = darIdPrimeraListaUsuario($idUsuario);
 	$enlaces = darEnlaceDeListaPorId($idLista);
