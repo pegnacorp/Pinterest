@@ -4,6 +4,10 @@
 
 [primera_seccion]
 host=localhost
+<<<<<<< HEAD
+baseDeDatos=mvc
+=======
 baseDeDatos=pinterestelar
+>>>>>>> 5338e38d5c530a9e962f16438d589689eda840f1
 usuario=root
 clave=
