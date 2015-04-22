@@ -44,11 +44,17 @@
 		    $result->execute($parametros);//Revisar porque no funciona cuando se usa $variablesConInformacion
 
 		}
-		function select($tabla){
+		function select($tabla,$condicionales){
 			$conexionBD = new ConexionBD();
 			$conn = $conexionBD->conectar();
 			$result;
 		    $sql = 'SELECT * FROM '.ucwords($tabla);
+		    if($condicionales!=NULL){
+		    	$sql .= ' WHERE ';
+		    	foreach ($condicionales as $variable => $informacion) {
+					$sql .= $variable . " = " . $informacion;
+				}
+		    }
 		    $result = $conn->query($sql);         
 		    $rows = $result->fetchAll();
 		    $objetos = array();
