@@ -20,8 +20,6 @@ class EnlaceList extends View{
 	//Solo funcional para youtube
 	function insertarVideo($direccion){
 		echo"<object id='video' data='".$direccion."'></object><br>";
-			echo "<a href='../user/modify/?id=".$id."'>Modificar usuario</a>";
-			echo " <a href='../user/delete/?id=".$id."'>Eliminar usuario</a><br>";
 	}
 	function insertarImagen($direccion){
 		echo"<img id='imagen' src='".$direccion."' WIDTH=178 HEIGHT=180>";
@@ -42,6 +40,7 @@ class EnlaceList extends View{
 	}
 	function dibujarEnlacesTotales($enlaces,$idUsuario){
 
+<<<<<<< HEAD
 		for ($i=0; $i < count($enlaces); $i++) { 
 			$enlace = $enlaces[$i];
 			$nombre= $enlace->nombre;
@@ -73,6 +72,16 @@ class EnlaceList extends View{
 		   	echo "</div>";
 		}
 		
+=======
+			$id = $enlaceActual->id;
+			echo $enlaceActual->nombre;
+			echo "<a href='../Enlace/modify/?id=".$id."'> Modificar enlace</a>";
+			echo " <a href='../Enlace/delete/?id=".$id."'> Eliminar enlace</a><br>";
+			echo "--------------------------------<br/>";
+			$i++;
+		}
+		echo "<a href='../Enlace/add'>Nuevo enlace</a>";
+>>>>>>> 0e45396728b52e8048eec8e2c6e7cf9774e959d8
 	}
 	function dibujarDescripcionUsuario($nombre){
 		echo"<div id='descripcionUsuario'>";

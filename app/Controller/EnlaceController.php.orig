@@ -3,12 +3,19 @@
 		public $action;
 
 		function darReglasDeAcceso(){
+<<<<<<< HEAD
 			$reglas  = array();
 			$regla1  = array("admin"=> array("listing","add","delete","modify"));
 			$regla2  = array("comun"=> array());
 			array_push($reglas, $regla1);
 			array_push($reglas, $regla2);
 			return $reglas;
+=======
+			$rules  = array();
+			$rule  = array("admin"=> array("listing","add","delete","modify"));
+			array_push($rules, $rule);
+			return $rules;
+>>>>>>> 0e45396728b52e8048eec8e2c6e7cf9774e959d8
 		}
 
 		function listing(){
