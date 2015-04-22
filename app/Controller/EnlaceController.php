@@ -17,46 +17,42 @@
 			$enlaceList = new EnlaceList();
 			$enlaceList-> listarEnlaces($enlaces);
 		}
-
 		function add(){
-			if(empty($_POST["nombre"])){
-				$userForm = new UserForm();
-				$userForm->mostrarFormulario();
+			if(empty($_POST["direccion"])){
+				$enlaceForm = new EnlaceForm();
+				$enlaceForm->mostrarFormulario();
 			}else{
 				$nombre=$_POST["nombre"];
-				$apellido = $_POST["apellido"];
-				$nombreUsuario= $_POST["nombreUsuario"];
-				$clave = $_POST["clave"];
-				$user = new User("","","","");
-				$variables = array("firstName" =>$nombre, "lastName" => $apellido, "user" => $nombreUsuario, "password" => $clave); 
-				$user->agregar($variables);
-				header ("Location: /../Proyectos/Ejemplo mvc/index.php/User/listing/?d");
+				$direccion = $_POST["direccion"];
+				$idUsuario = 1;
+				$enlace = new Enlace("","","");
+				$variables = array("nombre" =>$nombre, "direccion" => $direccion, "idUsuario" => $idUsuario); 
+				$enlace->agregar($variables);
+				header ("Location: /Proyectos/Pontetium/index.php/Enlace/listing");
 			}
 		}
 		function delete(){
-			$user = new User("","","","");
+			$enlace = new Enlace("","","","");
 			$id=$_GET["id"];
-			$user->borrar($id);
-
+			$enlace->borrar($id);
+			header ("Location: /Proyectos/Pontetium/index.php/Enlace/listing");
 		}
+		
 		function modify(){
-			if(empty($_POST["nombre"])){
-				$userForm = new UserForm();
-				$user = new User("","","","");
+			if(empty($_POST["direccion"])){
+				$enlaceForm = new enlaceForm();
+				$enlace = new Enlace("","","","");
 				$id=$_GET["id"];
-				$usuario = $user->buscar($id);
-				$userForm->mostrarFormularioLlenado($usuario);
+				$enlace = $enlace->buscar($id);
+				$enlaceForm->mostrarFormularioLlenado($enlace);
 			}else{
 				$nombre=$_POST["nombre"];
-				$apellido = $_POST["apellido"];
-				$nombreUsuario= $_POST["nombreUsuario"];
-				$clave = $_POST["clave"];
+				$direccion = $_POST["direccion"];
 				$id=$_GET["id"];
-				$user = new User("","","","");
-				$variables = array("firstName" =>$nombre, "lastName" => $apellido, "user" => $nombreUsuario, "password" => $clave); 
-				$user->modificar($variables,$id);
-				header ("Location: /../Proyectos/Ejemplo mvc/index.php/User/listing/?d");
-				echo "hola";
+				$enlace = new Enlace("","","","");
+				$variables = array("nombre" =>$nombre, "direccion" => $direccion); 
+				$enlace->modificar($variables,$id);
+				header ("Location: /Proyectos/Pontetium/index.php/Enlace/listing/?d");
 			}
 		}
 	}
