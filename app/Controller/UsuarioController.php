@@ -1,19 +1,41 @@
 <?php
-	class UserController extends Controller{
+	class UsuarioController extends Controller{
 		public $action;
 
 		function darReglasDeAcceso(){
 			$reglas  = array();
 			$regla1  = array("admin"=> array("listing","add","delete","modify"));
+			$regla2  = array("comun"=> array("autenticar"));
 			array_push($reglas, $regla1);
+			array_push($reglas, $regla2);
 			return $reglas;
 		}
 
 		function listing(){
-			$user = new User("","","","");
-			$users = $user->darTotal();
+			$usuario = new Usuario("","","","");
+			$users = $usuario->darTotal();
 			$userList = new UserList();
 			$userList-> listUsers($users);
+		}
+		function autenticar(){
+
+			if(empty($_POST["correo"])){
+				$vistaAutenticar = new VistaAutenticar();
+				$vistaAutenticar->mostrarFormulario();
+			}else{
+
+				$idUsuario = $_POST["correo"];
+				$clave= $_POST["clave"];
+
+				if($idUsuario == "corep"){
+					$sistemaUsuario = new SystemUser();
+					$sistemaUsuario->crearSesion($idUsuario);
+					$usuario = new Usuario("","","","");
+					$users = $usuario->buscar();
+					
+				}
+			}
+
 		}
 
 		function add(){

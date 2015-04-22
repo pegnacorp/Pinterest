@@ -5,7 +5,9 @@
 		function darReglasDeAcceso(){
 			$reglas  = array();
 			$regla1  = array("admin"=> array("listing","add","delete","modify"));
+			$regla2  = array("comun"=> array());
 			array_push($reglas, $regla1);
+			array_push($reglas, $regla2);
 			return $reglas;
 		}
 

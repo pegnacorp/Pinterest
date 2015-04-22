@@ -1,17 +1,16 @@
 <?php
-	class SystemUser{
-		public $id;
-		public $login;
-		public $isLogged;
+	class SystemUser{		
+		private $id;
+		private $sesionAbierta;
 
-		function login(){
+		function crearSesion($id){
 			session_start();
-			$isLogged = true;
-			$id  = $_POST['id'];
 			$_SESSION['id'] = $id;
 		}
-		function logout(){
-			session_start();
+		public function estaLaSesionAbierta(){
+			return isset($_SESSION['id']) == true;
+		}
+		function cerrarSesion(){
         	session_destroy();
 		}
 	}

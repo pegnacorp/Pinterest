@@ -9,10 +9,7 @@ class UserList extends View{
 			$parametros = $manejadorUrl->getParametros();
 			echo $parametros["id"];*/
 			$id = $usuarioActual->id;
-			echo "Nombre: " . $usuarioActual->firstName."</br>";
-			echo "Apellido: ".$usuarioActual->lastName."</br>";
-			echo "Usuario: ".$usuarioActual->user."</br>";
-			echo "Contrasena: ".$usuarioActual->password."</br>";
+			echo $usuarioActual->nombre;
 			echo "<a href='../user/modify/?id=".$id."'>Modificar usuario</a>";
 			echo " <a href='../user/delete/?id=".$id."'>Eliminar usuario</a><br>";
 			echo "--------------------------------<br/>";

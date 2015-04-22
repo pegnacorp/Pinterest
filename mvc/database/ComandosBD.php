@@ -62,6 +62,7 @@
 		    			array_push($variables,$row[$contador]);
 		    			}else{
 		    				$id = $row[$contador];
+		    				array_push($variables,$row[$contador]);		
 		    			}
 		    		}
 		    		$contador = $contador + 1;
@@ -69,7 +70,7 @@
 		    	$manoDeDios = new ManoDeDios();
 		    	$nombreDeClase = ucwords($tabla);
 		    	$objeto = $manoDeDios->darVida($nombreDeClase,$variables);
-		    	$objeto->id = $id;
+
 			    array_push($objetos, $objeto);
 			}
 			return $objetos;

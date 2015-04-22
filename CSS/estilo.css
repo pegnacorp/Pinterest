@@ -1,0 +1,45 @@
+#enlace{
+	background-color: #FFFFFF;
+	border-radius: 5px;
+	margin:2%;
+	border: 1px solid #D8D8D8;
+	overflow: hidden;
+	float:left;
+	width:27%;
+	height:27%;
+}
+body {
+  	background-color: #F2F2F2;
+  }
+ #video{
+ 	float:left;
+ 	width:70%;
+	height:70%;
+}
+ #imagen{
+ 	float:left;
+ 		margin-left: auto;
+	margin-right: auto ;
+ }
+ #imagenOtrosEnlaces{
+	width:35%;
+	height:80%;
+
+}
+#estrellaApagada{
+	width:6%;
+	height:11%;
+	float:right;
+}
+#estrellaApagadaPerfil{
+	width:3%;
+	height:5%;
+
+}
+#estrellaPrendidaPerfil{
+	width:4%;
+	height:5.7%;
+}
+#imagenEliminar{
+	float:right;
+}

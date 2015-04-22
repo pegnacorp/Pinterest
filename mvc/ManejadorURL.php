@@ -11,7 +11,7 @@ class ManejadorURL{
 	}
 
 	function procesarUrl(){
-		$this->url = "miweb.com/index.php/user/new/?ejemplo=hola";
+		//$this->url = "miweb.com/index.php/user/new/?ejemplo=hola";
 		$url = $url="http://".$_SERVER['HTTP_HOST'].":".$_SERVER['SERVER_PORT'].$_SERVER['REQUEST_URI'];
 		$array = parse_url($url);
 		$elementosPath  = explode("index.php", $url);
