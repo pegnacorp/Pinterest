@@ -13,7 +13,8 @@
 
 		function listing(){
 			$enlace = new Enlace("","","","");
-			$enlaces = $enlace->darTotal();
+			$condicionales = array("idUsuario" => 1);
+			$enlaces = $enlace->darTotalCondicionado($condicionales);
 			$enlaceList = new EnlaceList();
 			$enlaceList-> listarEnlaces($enlaces);
 		}
