@@ -4,7 +4,7 @@
 
 		function darReglasDeAcceso(){
 			$reglas  = array();
-			$regla1  = array("admin"=> array("listing","add","delete","modify"));
+			$regla1  = array("admin"=> array("listing","cerrar","add","delete","modify"));
 			$regla2  = array("comun"=> array("autenticar"));
 			array_push($reglas, $regla1);
 			array_push($reglas, $regla2);
@@ -16,6 +16,11 @@
 			$users = $usuario->darTotal();
 			$userList = new UserList();
 			$userList-> listUsers($users);
+		}
+		function cerrar(){
+			$sistemaUsuario = new SystemUser();
+			$sistemaUsuario->cerrarSesion();
+			header ("Location: /Proyectos/Pontetium/index.php/Usuario/autenticar");
 		}
 		function autenticar(){
 
@@ -31,7 +36,7 @@
 					$sistemaUsuario = new SystemUser();
 					$sistemaUsuario->crearSesion($idUsuario);
 					$usuario = new Usuario("","","","");
-					$users = $usuario->buscar();
+					//$users = $usuario->buscar();
 					
 				}
 			}
@@ -50,7 +55,9 @@
 				$user = new User("","","","");
 				$variables = array("firstName" =>$nombre, "lastName" => $apellido, "user" => $nombreUsuario, "password" => $clave); 
 				$user->agregar($variables);
-				header ("Location: /../Proyectos/Ejemplo mvc/index.php/User/listing/?d");
+				$configuracion = Configuracion::getInstance();
+				$informacionConfiguracion = $configuracion->loadConfig();	
+				header ("Location: ".$informacionConfiguracion["direccionRaiz"]."index.php/Usuario/listing");
 			}
 		}
 		function delete(){
@@ -75,7 +82,9 @@
 				$user = new User("","","","");
 				$variables = array("firstName" =>$nombre, "lastName" => $apellido, "user" => $nombreUsuario, "password" => $clave); 
 				$user->modificar($variables,$id);
-				header ("Location: /../Proyectos/Ejemplo mvc/index.php/User/listing/?d");
+				$configuracion = Configuracion::getInstance();
+				$informacionConfiguracion = $configuracion->loadConfig();	
+				header ("Location: ".$informacionConfiguracion["direccionRaiz"]."index.php/Usuario/listing");
 				echo "hola";
 			}
 		}

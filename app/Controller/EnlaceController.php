@@ -16,7 +16,7 @@
 			$condicionales = array("idUsuario" => 1);
 			$enlaces = $enlace->darTotalCondicionado($condicionales);
 			$enlaceList = new EnlaceList();
-			$enlaceList-> listarEnlaces($enlaces);
+			$enlaceList-> desplegarVistaEnlaces($enlaces);
 		}
 		function add(){
 			if(empty($_POST["direccion"])){
@@ -29,14 +29,18 @@
 				$enlace = new Enlace("","","");
 				$variables = array("nombre" =>$nombre, "direccion" => $direccion, "idUsuario" => $idUsuario); 
 				$enlace->agregar($variables);
-				header ("Location: /Proyectos/Pontetium/index.php/Enlace/listing");
+				$configuracion = Configuracion::getInstance();
+				$informacionConfiguracion = $configuracion->loadConfig();	
+				header ("Location: ".$informacionConfiguracion["direccionRaiz"]."index.php/Enlace/listing");
 			}
 		}
 		function delete(){
 			$enlace = new Enlace("","","","");
 			$id=$_GET["id"];
 			$enlace->borrar($id);
-			header ("Location: /Proyectos/Pontetium/index.php/Enlace/listing");
+				$configuracion = Configuracion::getInstance();
+				$informacionConfiguracion = $configuracion->loadConfig();	
+				header ("Location: ".$informacionConfiguracion["direccionRaiz"]."index.php/Enlace/listing");
 		}
 		
 		function modify(){
@@ -53,7 +57,9 @@
 				$enlace = new Enlace("","","","");
 				$variables = array("nombre" =>$nombre, "direccion" => $direccion); 
 				$enlace->modificar($variables,$id);
-				header ("Location: /Proyectos/Pontetium/index.php/Enlace/listing/?d");
+				$configuracion = Configuracion::getInstance();
+				$informacionConfiguracion = $configuracion->loadConfig();	
+				header ("Location: ".$informacionConfiguracion["direccionRaiz"]."index.php/Enlace/listing");
 			}
 		}
 	}

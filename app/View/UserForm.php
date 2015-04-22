@@ -2,8 +2,10 @@
 
 class UserForm extends View{
 	function mostrarFormulario(){
+		$configuracion = Configuracion::getInstance();
+		$informacionConfiguracion = $configuracion->loadConfig();	
 ?>
-		<form action="/Proyectos/Ejemplo mvc/index.php/User/add/?d"  method="post">
+		<form action="<?php echo"$informacionConfiguracion["direccionRaiz"]"?>index.php/User/add/?d"  method="post">
 			<input type = "text" id="nombre" class = "input" name ="nombre" placeholder="nombre">
 			<br>
 			<input type = "text" id="apellido" class = "input" name ="apellido" placeholder="apellido">
@@ -21,7 +23,7 @@ class UserForm extends View{
 		$apellido = $usuario->lastName;
 		$nombreUsuario = $usuario->user;
 		$clave = $usuario->password;
-		echo "<form action='/Proyectos/Ejemplo mvc/index.php/User/modify/?id=".$id."'  method='post'>
+		echo "<form action='".$informacionConfiguracion["direccionRaiz"]."index.php/User/modify/?id=".$id."'  method='post'>
 			<input type = 'text' id='nombre' class = 'input' name ='nombre' placeholder='nombre' value='".$nombre."'>
 			<br>
 			<input type = 'text' id='apellido' class = 'input' name ='apellido' placeholder='apellido' value='".$apellido."'>

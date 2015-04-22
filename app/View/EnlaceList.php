@@ -10,8 +10,8 @@ class EnlaceList extends View{
 	
 
 	function desplegarVistaEnlaces($enlaces){
-		echo "<b><a href='".$direccion."'>".$nombre."</a><br>";
-		listarEnlaces($enlaces);
+		echo "<b><a href=''>Cerrar sesion</a><br>";
+		$this->listarEnlaces($enlaces);
 	}
 	function listarEnlaces($enlaces){
 		$i = 0;
@@ -54,8 +54,8 @@ class EnlaceList extends View{
 			$idSesion = 2;
 			echo"<div id='enlace'>";
 			echo "<b><a href='".$direccion."'>".$nombre."</a><br>";
-			echo "<a href='../modify/?id=".$id."'> Modificar enlace</a>";
-			echo " <a href='../delete/?id=".$id."'> Eliminar enlace</a><br>";
+			echo "<a href='../Enlace/modify/?id=".$id."'> Modificar enlace</a>";
+			echo " <a href='../Enlace/delete/?id=".$id."'> Eliminar enlace</a><br>";
 			
 			//echo"<img id='imagenEliminar' src='http://img1.wikia.nocookie.net/__cb20101009133122/es.pokemon/images/f/f4/Icono_de_borrar.png'>";
 			if(($this->esVideo($direccion))=== true){
