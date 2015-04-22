@@ -8,12 +8,12 @@ class EnlaceList extends View{
 
 			$id = $enlaceActual->id;
 			echo $enlaceActual->nombre;
-			echo "<a href='../user/modify/?id=".$id."'>Modificar usuario</a>";
-			echo " <a href='../user/delete/?id=".$id."'>Eliminar usuario</a><br>";
+			echo "<a href='../Enlace/modify/?id=".$id."'> Modificar enlace</a>";
+			echo " <a href='../Enlace/delete/?id=".$id."'> Eliminar enlace</a><br>";
 			echo "--------------------------------<br/>";
 			$i++;
 		}
-		echo "<a href='../add/?d'>Nuevo usuario</a>";
+		echo "<a href='../Enlace/add'>Nuevo enlace</a>";
 	}
 }
 ?>

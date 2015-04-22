@@ -3,58 +3,57 @@
 		public $action;
 
 		function darReglasDeAcceso(){
-			$reglas  = array();
-			$regla1  = array("admin"=> array("listing","add","delete","modify"));
-			array_push($reglas, $regla1);
-			return $reglas;
+			$rules  = array();
+			$rule  = array("admin"=> array("listing","add","delete","modify"));
+			array_push($rules, $rule);
+			return $rules;
 		}
 
 		function listing(){
-			$enlace = new Enlace("","","","");
-			$enlaces = $enlace->darTotal();
+			$enlace = new Enlace("","","");
+			$condicionales = array("idUsuario" => 1);
+			$enlaces = $enlace->darTotalCondicionado($condicionales);
 			$enlaceList = new EnlaceList();
 			$enlaceList-> listarEnlaces($enlaces);
 		}
 
 		function add(){
-			if(empty($_POST["nombre"])){
-				$userForm = new UserForm();
-				$userForm->mostrarFormulario();
+			if(empty($_POST["direccion"])){
+				$enlaceForm = new EnlaceForm();
+				$enlaceForm->mostrarFormulario();
 			}else{
 				$nombre=$_POST["nombre"];
-				$apellido = $_POST["apellido"];
-				$nombreUsuario= $_POST["nombreUsuario"];
-				$clave = $_POST["clave"];
-				$user = new User("","","","");
-				$variables = array("firstName" =>$nombre, "lastName" => $apellido, "user" => $nombreUsuario, "password" => $clave); 
-				$user->agregar($variables);
-				header ("Location: /../Proyectos/Ejemplo mvc/index.php/User/listing/?d");
+				$direccion = $_POST["direccion"];
+				$idUsuario = 1;
+				$enlace = new Enlace("","","");
+				$variables = array("nombre" =>$nombre, "direccion" => $direccion, "idUsuario" => $idUsuario); 
+				$enlace->agregar($variables);
+				header ("Location: /../pinterestelar/index.php/Enlace/listing");
 			}
 		}
-		function delete(){
-			$user = new User("","","","");
-			$id=$_GET["id"];
-			$user->borrar($id);
 
+		function delete(){
+			$enlace = new Enlace("","","");
+			$id=$_GET["id"];
+			$enlace->borrar($id);
+			header ("Location: /../pinterestelar/index.php/Enlace/listing");
 		}
+		
 		function modify(){
-			if(empty($_POST["nombre"])){
-				$userForm = new UserForm();
-				$user = new User("","","","");
+			if(empty($_POST["direccion"])){
+				$enlaceForm = new enlaceForm();
+				$enlace = new Enlace("","","");
 				$id=$_GET["id"];
-				$usuario = $user->buscar($id);
-				$userForm->mostrarFormularioLlenado($usuario);
+				$enlace = $enlace->buscar($id);
+				$enlaceForm->mostrarFormularioLlenado($enlace);
 			}else{
 				$nombre=$_POST["nombre"];
-				$apellido = $_POST["apellido"];
-				$nombreUsuario= $_POST["nombreUsuario"];
-				$clave = $_POST["clave"];
+				$direccion = $_POST["direccion"];
 				$id=$_GET["id"];
-				$user = new User("","","","");
-				$variables = array("firstName" =>$nombre, "lastName" => $apellido, "user" => $nombreUsuario, "password" => $clave); 
-				$user->modificar($variables,$id);
-				header ("Location: /../Proyectos/Ejemplo mvc/index.php/User/listing/?d");
-				echo "hola";
+				$enlace = new enlace("","");
+				$variables = array("nombre" =>$nombre, "direccion" => $direccion); 
+				$enlace->modificar($variables,$id);
+				header ("Location: /../pinterestelar/index.php/Enlace/listing/?d");
 			}
 		}
 	}
