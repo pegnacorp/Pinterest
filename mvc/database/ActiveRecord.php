@@ -33,13 +33,7 @@
 		function darTotal(){
 			$tabla = $this->darNombreDeTabla();
 			$comandos = new ComanadosBD();
-			$objetos = $comandos->select($tabla,NULL);
-			return $objetos;
-		}
-		function darTotalCondicionado($condicionales){
-			$tabla = $this->darNombreDeTabla();
-			$comandos = new ComanadosBD();
-			$objetos = $comandos->select($tabla,$condicionales);
+			$objetos = $comandos->select($tabla);
 			return $objetos;
 		}
 	}

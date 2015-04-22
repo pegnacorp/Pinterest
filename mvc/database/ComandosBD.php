@@ -44,17 +44,11 @@
 		    $result->execute($parametros);//Revisar porque no funciona cuando se usa $variablesConInformacion
 
 		}
-		function select($tabla,$condicionales){
+		function select($tabla){
 			$conexionBD = new ConexionBD();
 			$conn = $conexionBD->conectar();
 			$result;
 		    $sql = 'SELECT * FROM '.ucwords($tabla);
-		    if($condicionales!=NULL){
-		    	$sql .= ' WHERE ';
-		    	foreach ($condicionales as $variable => $informacion) {
-					$sql .= $variable . " = " . $informacion;
-				}
-		    }
 		    $result = $conn->query($sql);         
 		    $rows = $result->fetchAll();
 		    $objetos = array();
@@ -100,7 +94,7 @@
 		    			if($contador!=0){
 		    				array_push($variables,$row[$contador]);
 		    			}else{
-		    				$id = $row[$contador];
+		    				array_push($variables,$row[$contador]);		
 		    			}
 		    		}
 		    		$contador = $contador + 1;
@@ -109,7 +103,6 @@
 		    	$nombreDeClase = ucwords($tabla);
 		    	//$nombreDeClase = ucwords("User");
 		    	$objeto = $manoDeDios->darVida($nombreDeClase,$variables);
-		    	$objeto->id = $id;
 			}
 			return $objeto;
 		}

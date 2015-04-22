@@ -4,9 +4,15 @@
 	<style type="text/css"><?php include("estilo.css") ?></style>
 </head>
 <body>
+
 <?php
 class EnlaceList extends View{
+	
 
+	function desplegarVistaEnlaces($enlaces){
+		echo "<b><a href='".$direccion."'>".$nombre."</a><br>";
+		listarEnlaces($enlaces);
+	}
 	function listarEnlaces($enlaces){
 		$i = 0;
 				$idUsuario = 2;//Para la prueba
@@ -20,8 +26,6 @@ class EnlaceList extends View{
 	//Solo funcional para youtube
 	function insertarVideo($direccion){
 		echo"<object id='video' data='".$direccion."'></object><br>";
-			echo "<a href='../user/modify/?id=".$id."'>Modificar usuario</a>";
-			echo " <a href='../user/delete/?id=".$id."'>Eliminar usuario</a><br>";
 	}
 	function insertarImagen($direccion){
 		echo"<img id='imagen' src='".$direccion."' WIDTH=178 HEIGHT=180>";
@@ -50,13 +54,9 @@ class EnlaceList extends View{
 			$idSesion = 2;
 			echo"<div id='enlace'>";
 			echo "<b><a href='".$direccion."'>".$nombre."</a><br>";
-			if($idUsuario == $idSesion){
-			}else{
-				echo"<form name='id' method='post' action='../GestionEnlace/EliminarEnlace.php'>
-				<input type='image' id='imagenEliminar' value='".$id."' src='http://img1.wikia.nocookie.net/__cb20101009133122/es.pokemon/images/f/f4/Icono_de_borrar.png'/>";
-				echo"<input type='hidden' name='id' value='".$id."' />";
-				echo "</form>";
-			}
+			echo "<a href='../modify/?id=".$id."'> Modificar enlace</a>";
+			echo " <a href='../delete/?id=".$id."'> Eliminar enlace</a><br>";
+			
 			//echo"<img id='imagenEliminar' src='http://img1.wikia.nocookie.net/__cb20101009133122/es.pokemon/images/f/f4/Icono_de_borrar.png'>";
 			if(($this->esVideo($direccion))=== true){
 		   	  	$this->insertarVideo($direccion);
@@ -68,6 +68,7 @@ class EnlaceList extends View{
 		   			echo"<img id='imagenOtrosEnlaces' src='http://2.bp.blogspot.com/-PlEakBT5MVQ/UPceQaVjeyI/AAAAAAAAC2w/mQkaDMlsW30/s1600/asd.png' WIDTH=150 HEIGHT=160>";
 		   		}
 		   	}
+
 		   	echo "<div id='informacion'>";
 			echo "</div>";
 		   	echo "</div>";

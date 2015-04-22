@@ -1,17 +1,18 @@
 <?php
-
-class Enlace extends ActiveRecord{
-	public $idEnlace;
-	public $nombre;
-	public $direccion;
-	public $idUsuario;
-
-	function __construct($nombre,$direccion,$idUsuario){
-		parent::__construct();
-		$this->nombre = $nombre;
-		$this->direccion = $direccion;
-		$this->idUsuario = $idUsuario;
+	/**
+	* 			
+	*/
+	class Enlace extends ActiveRecord{
+		public $id;
+		public $nombre;
+		public $direccion;
+		public $idUsuario;
+		
+		function __construct($id,$nombre,$direccion,$idUsuario){
+			$this->id = $id;
+			$this->nombre = $nombre;
+			$this->direccion = $direccion;
+			$this->idUsuario = $idUsuario;
+		}
 	}
-}
-
 ?>
