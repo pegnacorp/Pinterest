@@ -26,7 +26,7 @@
 				$nombre=$_POST["nombre"];
 				$direccion = $_POST["direccion"];
 				$idUsuario = 1;
-				$enlace = new Enlace("","","");
+				$enlace = new Enlace("","","","");
 				$variables = array("nombre" =>$nombre, "direccion" => $direccion, "idUsuario" => $idUsuario); 
 				$enlace->agregar($variables);
 				$configuracion = Configuracion::getInstance();

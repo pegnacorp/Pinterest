@@ -20,7 +20,9 @@
 		function cerrar(){
 			$sistemaUsuario = new SystemUser();
 			$sistemaUsuario->cerrarSesion();
-			header ("Location: /Proyectos/Pontetium/index.php/Usuario/autenticar");
+			$configuracion = Configuracion::getInstance();
+			$informacionConfiguracion = $configuracion->loadConfig();	
+			header ("Location: ".$informacionConfiguracion["direccionRaiz"]."index.php/Usuario/autenticar");
 		}
 		function autenticar(){
 
