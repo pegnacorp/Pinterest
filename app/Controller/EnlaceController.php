@@ -30,7 +30,7 @@
 				$variables = array("nombre" =>$nombre, "direccion" => $direccion, "idUsuario" => $idUsuario); 
 				$enlace->agregar($variables);
 				$configuracion = Configuracion::getInstance();
-				$informacionConfiguracion = $configuracion->loadConfig();	
+				$informacionConfiguracion = $configuracion->loadConfig();
 				header ("Location: ".$informacionConfiguracion["direccionRaiz"]."index.php/Enlace/listing");
 			}
 		}

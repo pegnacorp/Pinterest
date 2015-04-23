@@ -10,7 +10,9 @@ class EnlaceList extends View{
 	
 
 	function desplegarVistaEnlaces($enlaces){
-		echo "<b><a href=''>Cerrar sesion</a><br>";
+		echo "<b><a href='../Usuario/cerrar'>Cerrar sesion</a><br>";
+		echo "<b><br>";
+		echo "<b><a href='../Enlace/add'>Nuevo Enlace</a><br>";
 		$this->listarEnlaces($enlaces);
 	}
 	function listarEnlaces($enlaces){

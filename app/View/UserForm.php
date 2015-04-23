@@ -3,20 +3,19 @@
 class UserForm extends View{
 	function mostrarFormulario(){
 		$configuracion = Configuracion::getInstance();
-		$informacionConfiguracion = $configuracion->loadConfig();	
-?>
-		<form action="<?php echo"$informacionConfiguracion["direccionRaiz"]"?>index.php/User/add/?d"  method="post">
-			<input type = "text" id="nombre" class = "input" name ="nombre" placeholder="nombre">
+		$informacionConfiguracion = $configuracion->loadConfig();
+		echo "
+		<form action='".$informacionConfiguracion["direccionRaiz"]."index.php/Usuario/add'  method='post'>
+			<input type = 'text' id='nombre' class = 'input' name ='nombre' placeholder='nombre'>
 			<br>
-			<input type = "text" id="apellido" class = "input" name ="apellido" placeholder="apellido">
+			<input type = 'text' id='correo' class = 'input' name ='correo' placeholder='correo'>
 			<br>
-			<input type = "text" id="nombreUsuario" class = "input" name ="nombreUsuario" placeholder="nombre de usuario">
+			<input type = 'password' id='clave' class = 'input' name ='clave' placeholder='Contraseña'>
 			<br>
-			<input type = "password" id="clave" class = "input" name ="clave" placeholder="Contraseña">
-			<input type = "submit" value="ingresar" >
-		</form>
-<?php
+			<input type = 'submit' value='ingresar' >
+		</form>";
 	}
+
 	function mostrarFormularioLlenado($usuario){
 		$id = $usuario->id;
 		$nombre = $usuario->firstName;

@@ -51,11 +51,10 @@
 				$userForm->mostrarFormulario();
 			}else{
 				$nombre=$_POST["nombre"];
-				$apellido = $_POST["apellido"];
-				$nombreUsuario= $_POST["nombreUsuario"];
+				$correo= $_POST["correo"];
 				$clave = $_POST["clave"];
-				$user = new User("","","","");
-				$variables = array("firstName" =>$nombre, "lastName" => $apellido, "user" => $nombreUsuario, "password" => $clave); 
+				$user = new Usuario("","","","");
+				$variables = array("nombre" =>$nombre, "correo" => $correo, "clave" => $clave); 
 				$user->agregar($variables);
 				$configuracion = Configuracion::getInstance();
 				$informacionConfiguracion = $configuracion->loadConfig();	
@@ -63,7 +62,7 @@
 			}
 		}
 		function delete(){
-			$user = new User("","","","");
+			$user = new Usuario("","","","");
 			$id=$_GET["id"];
 			$user->borrar($id);
 
@@ -71,7 +70,7 @@
 		function modify(){
 			if(empty($_POST["nombre"])){
 				$userForm = new UserForm();
-				$user = new User("","","","");
+				$user = new Usuario("","","","");
 				$id=$_GET["id"];
 				$usuario = $user->buscar($id);
 				$userForm->mostrarFormularioLlenado($usuario);
@@ -81,7 +80,7 @@
 				$nombreUsuario= $_POST["nombreUsuario"];
 				$clave = $_POST["clave"];
 				$id=$_GET["id"];
-				$user = new User("","","","");
+				$user = new Usuario("","","","");
 				$variables = array("firstName" =>$nombre, "lastName" => $apellido, "user" => $nombreUsuario, "password" => $clave); 
 				$user->modificar($variables,$id);
 				$configuracion = Configuracion::getInstance();
