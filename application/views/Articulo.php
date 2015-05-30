@@ -20,8 +20,7 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Hello, world!</h1>
- 
+    <h1>Hola mundo
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -29,4 +28,4 @@
   </body>
 </html>
 
-<?php //endforeach ?>
+
