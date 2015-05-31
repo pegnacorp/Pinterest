@@ -1,14 +1,37 @@
 <?php
 class Lista_Model extends CI_Model{
+	function __construct(){
+		parent::__construct();
+		$this->load->database();
+	}
 
-   function __construct(){
-      parent::__construct();
-      $this->load->database();
-   }
-   
-   function getListas(){
-   	$query = $this->db->get('lista');
-      return $query->result_array();
-   }
+	function getListas($idUsuario = FALSE){
+		//Se obtienen las listas de la más reciente a la más antigua
+		$this->db->order_by('idLista', 'desc');
+		if($idUsuario === FALSE)
+			//Se obtienen todas las listas
+   			$query = $this->db->get('lista');
+    	else
+    		//Se obtienen las listas de un solo usuario
+    		$query = $this->db->get_where('lista', array('idUsuario' => $idUsuario));
+    	return $query->result_array();
+    }
+
+    function getLista($idLista){
+    	//Se obtiene una unica lista
+    	$query = $this->db->get_where('lista', array('idLista' => $idLista));
+    	return $query->row();
+    }
+
+    function setLista(){
+        $lista = array(
+            'nombre' => $this->input->post('nombre'),
+            'descripcion' => $this->input->post('descripcion'),
+            'privacidad' => $this->input->post('privacidad'),
+            'idUsuario' => '1'
+        );
+
+        return $this->db->insert('lista', $lista);
+    }
 }
 ?>
