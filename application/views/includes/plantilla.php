@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-		<title>Faceboot - A Facebook style template for Bootstrap</title>
+		<title>Pinterestellar - Planets of links</title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel="stylesheet">
@@ -27,13 +27,12 @@
                
                 <ul class="nav hidden-xs" id="lg-menu">
                     <li class="active"><a href="#featured"><i class="glyphicon glyphicon-list-alt"></i> Featured</a></li>
-                    <li><a href="#stories"><i class="glyphicon glyphicon-list"></i> Stories</a></li>
+                    <li><a href="#stories"><i class="glyphicon glyphicon-list"></i> Mis listas</a></li>
                     <li><a href="#"><i class="glyphicon glyphicon-paperclip"></i> Saved</a></li>
                     <li><a href="#"><i class="glyphicon glyphicon-refresh"></i> Refresh</a></li>
                 </ul>
                 <ul class="list-unstyled hidden-xs" id="sidebar-footer">
                     <li>
-                      <a href="http://www.bootply.com"><h3>Bootstrap</h3> <i class="glyphicon glyphicon-heart-empty"></i> Bootply</a>
                     </li>
                 </ul>
               
@@ -133,12 +132,6 @@
                           </div>
                         </div>
                       
-                      <hr>
-                      
-                      <h4 class="text-center">
-                      <a href="http://bootply.com/96266" target="ext">Download this Template @Bootply</a>
-                      </h4>
-                        
                       <hr>
                         
                       
