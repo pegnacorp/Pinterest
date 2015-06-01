@@ -20,6 +20,19 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->load->library('ion_auth');		
+		$data['logged_in'] = false;
+ 		if ($this->ion_auth->logged_in()) {
+ 			$id = $this->ion_auth->user()->row()->id;
+			$user = $this->ion_auth->user($id)->row();
+			$data['user'] = $user;
+			$data['logged_in'] = true;
+		}
+
+		$this->load->view('templates/header');
+		$this->load->view('templates/navbar', $data);
+		$this->load->view('index');
+		$this->load->view('templates/footer');
+		
 	}
 }
