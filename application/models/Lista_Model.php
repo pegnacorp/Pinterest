@@ -22,6 +22,11 @@ class Lista_Model extends CI_Model{
     	$query = $this->db->get_where('lista', array('idLista' => $idLista));
     	return $query->row();
     }
+    function dar_lista_favoritos_por_id_usuario($idUsuario){
+        $this->db->join('users', 'users.id = lista.idUsuario');
+        $query = $this->db->get_where('lista',array('favoritos' => "1",'idUsuario' => $idUsuario));
+        return $query->row();
+    }
 
     function setLista(){
         $lista = array(
