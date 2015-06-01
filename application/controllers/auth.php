@@ -40,7 +40,11 @@ class Auth extends CI_Controller {
 				$this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
 			}
 
+			$this->load->view('templates/header');
+			$this->load->view('templates/navbar');
 			$this->_render_page('auth/index', $this->data);
+			$this->load->view('templates/footer');
+			
 		}
 	}
 
@@ -55,8 +59,8 @@ class Auth extends CI_Controller {
 		$this->data['title'] = "Login";
 
 		//validate form input
-		$this->form_validation->set_rules('identity', 'Identity', 'required');
-		$this->form_validation->set_rules('password', 'Password', 'required');
+		$this->form_validation->set_rules('identity', 'Email', 'required');
+		$this->form_validation->set_rules('password', 'Contraseña', 'required');
 
 		if ($this->form_validation->run() == true)
 		{
@@ -69,7 +73,7 @@ class Auth extends CI_Controller {
 				//if the login is successful
 				//redirect them back to the home page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect('/', 'refresh');
+				redirect('', 'refresh');
 			}
 			else
 			{
@@ -95,7 +99,11 @@ class Auth extends CI_Controller {
 				'type' => 'password',
 			);
 
-			$this->_render_page('auth/login', $this->data);
+			$this->load->view('templates/header');
+			$this->load->view('templates/navbar');
+			$this->load->view('auth/login', $this->data);
+			$this->load->view('templates/footer');			
+
 		}
 	}
 
@@ -158,7 +166,11 @@ class Auth extends CI_Controller {
 			);
 
 			//render
+			$this->load->view('templates/header');
+			$this->load->view('templates/navbar');
 			$this->_render_page('auth/change_password', $this->data);
+			$this->load->view('templates/footer');	
+			
 		}
 		else
 		{
@@ -211,7 +223,11 @@ class Auth extends CI_Controller {
 
 			//set any errors and display the form
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+			$this->load->view('templates/header');
+			$this->load->view('templates/navbar');
 			$this->_render_page('auth/forgot_password', $this->data);
+			$this->load->view('templates/footer');				
+			
 		}
 		else
 		{
@@ -302,7 +318,11 @@ class Auth extends CI_Controller {
 				$this->data['code'] = $code;
 
 				//render
+				$this->load->view('templates/header');
+				$this->load->view('templates/navbar');
 				$this->_render_page('auth/reset_password', $this->data);
+				$this->load->view('templates/footer');
+				
 			}
 			else
 			{
@@ -393,7 +413,11 @@ class Auth extends CI_Controller {
 			$this->data['csrf'] = $this->_get_csrf_nonce();
 			$this->data['user'] = $this->ion_auth->user($id)->row();
 
+			$this->load->view('templates/header');
+			$this->load->view('templates/navbar');
 			$this->_render_page('auth/deactivate_user', $this->data);
+			$this->load->view('templates/footer');
+			
 		}
 		else
 		{
@@ -493,7 +517,11 @@ class Auth extends CI_Controller {
 				'value' => $this->form_validation->set_value('password_confirm'),
 			);
 
+			$this->load->view('templates/header');
+			$this->load->view('templates/navbar');
 			$this->_render_page('auth/create_user', $this->data);
+			$this->load->view('templates/footer');
+			
 		}
 	}
 
@@ -504,8 +532,7 @@ class Auth extends CI_Controller {
 
 		if (!$this->ion_auth->logged_in() || (!$this->ion_auth->is_admin() && !($this->ion_auth->user()->row()->id == $id)))
 		{	
-			//redirect('');
-			echo "si";
+			redirect('');			
 		}
 
 		$user = $this->ion_auth->user($id)->row();
@@ -622,7 +649,11 @@ class Auth extends CI_Controller {
 			'type' => 'password'
 		);
 
+		$this->load->view('templates/header');
+		$this->load->view('templates/navbar');
 		$this->_render_page('auth/edit_user', $this->data);
+		$this->load->view('templates/footer');
+		
 	}
 
 	// create a new group
