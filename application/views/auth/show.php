@@ -4,10 +4,9 @@
 	<div class="row">
 		<p><?php ?></p>
 		<?php if ($isUser) {
-			
-			}else{
-		?>
-
+			echo "<h2>Bienvenido ".$usuario->username."</h2>";
+			}else{		?>
+				<?php echo "<h2>Visitando el perfil de ".$usuario->username ."</h2>" ?>
 				<?= form_open('Favorito/agregarFavorito');?>
 			    <div class="input-group input-group-sm" style="max-width:360px;">
 			    <div class="input-group-btn">
@@ -20,8 +19,5 @@
 		    	<?= form_close(); ?>
 			<?php
 				}
-			?>
-		<?php if ($esFavorito) {
-			echo "sakdhlkasjdlkasjldñkhakjññdsakjfhñkjadnckjandscjkasdhcñjkashñkj";
-		}?>			
+			?>				
 </div>

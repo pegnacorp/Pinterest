@@ -829,13 +829,7 @@ class Auth extends CI_Controller {
 			if ($this->ion_auth->user()->row()->id == $id) {
 				$data['isUser'] = true;			
 			}
-
-			$this->load->model('Favorito_model');			
-			$data['esFavorito'] = false;
-			$this->load->controller('favorito');
-			if ($this->Favorito_model()) {
-				# code...
-			}
+			
 			
 			$data['idUsuarioObservado'] = array('name' => 'idUsuarioObservado',
 				'id' => 'idUsuarioObservado',

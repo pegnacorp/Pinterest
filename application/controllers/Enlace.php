@@ -46,7 +46,7 @@
 			$this->load->helper('form');
     		$this->load->library('form_validation');
 			$enlaces = $this->Enlace_Model->dar_enlaces_totales_por_lista($id_lista);
-			if(count($enlaces) === 100000000000){
+			if(count($enlaces) === 10){
 				//show_404('Enlace.php');	
 			}else{
 			$lista = $this->Lista_Model->getLista($id_lista);	
@@ -55,7 +55,7 @@
     		$this->form_validation->set_rules('direccion','direccion','required');
 			$data["enlaces"] = $enlaces;
 			$data["lista"] = $lista;
-			$data["id_usuario_logueado"] = $id_usuario_logueado;
+			$data["id_usuario_logueado"] = $id_usuario;
 			$data["id_usuario_lista"] = $id_usuario_lista;
 			$this->load->view('templates/header');
 			$this->load->view('templates/navbar');
@@ -93,14 +93,14 @@
         		$lista = $this->input->post('lista');
         		$id = $this->input->get('id', TRUE);
         		$enlaces = $this->Enlace_Model->modificar($id,$nombre,$direccion,$lista);
-        		header ("Location: ". base_url()."index.php/enlace");
+        		header ("Location: ". base_url()."index.php/lista");
 			}
 		}
 		function eliminar(){
 			$this->load->model("Enlace_Model");
 			$id = $this->input->get('id', TRUE);
 			$this->Enlace_Model->eliminar($id );
-			header ("Location: ". base_url()."index.php/enlace");
+			header ("Location: ". base_url()."index.php/lista");
 		}
 		function marcar_favorito(){
 			$this->load->model("Enlace_Model");	

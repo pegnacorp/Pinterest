@@ -1,4 +1,6 @@
-
+<br>
+<br>
+<div class="row">
   <?php if (validation_errors() != ""): ?>
   	Errores en el formulario.
   <?php endif ?>
@@ -18,3 +20,4 @@
     <input type="submit" name="submit" value="Modificar" />
 
 </form>
+</div>

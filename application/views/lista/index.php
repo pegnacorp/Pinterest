@@ -20,8 +20,8 @@
 				$delete = 'index.php/lista/delete/'.$lista['idLista'];
 			?>
 			<tr>
-				<td>
-					<a href=<?php echo $list; ?>><?php echo $lista['Nombre']; ?></a><br>
+				<td>					
+					<a href=<?php echo 'index.php/enlace/desplegar_enlaces?lista='.$lista['idLista']; ?>><?php echo $lista['Nombre']; ?></a><br>
 					&nbsp;&nbsp;
 					<?php if(!strcmp("publica", $lista['Privacidad'])==0): ?>
 					<span class="label label-danger">

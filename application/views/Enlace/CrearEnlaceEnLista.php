@@ -6,7 +6,7 @@
 <div class="well"> 
 
 <p class="lead">Agregar un enlace a la lista</p>
-<?php echo form_open('index.php/enlace/crear/?id='.$this->input->get('lista', TRUE)) ?>
+<?php echo form_open('enlace/crear/?id='.$this->input->get('lista', TRUE)) ?>
 
     <label for="title">Nombre</label>
     <input type="input" class="form-control input-lg" name="nombre" />
