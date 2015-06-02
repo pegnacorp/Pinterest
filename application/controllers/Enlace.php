@@ -35,13 +35,14 @@
 		}
 		function desplegar_enlaces(){
 			$id_lista = $this->input->get('lista', TRUE);
-			$id_usuario = 2;
+			$this->load->library(array('ion_auth'));
+			$id_usuario = $this->ion_auth->user()->row()->id;
 			$this->load->model("Enlace_Model");
 			$this->load->model("Lista_Model");
 			$this->load->helper('form');
     		$this->load->library('form_validation');
 			$enlaces = $this->Enlace_Model->dar_enlaces_totales_por_lista($id_lista);
-			if(count($enlaces) === 10){
+			if(count($enlaces) === 100000000000){
 				//show_404('Enlace.php');	
 			}else{
 			$lista = $this->Lista_Model->getLista($id_lista);	
@@ -50,7 +51,7 @@
     		$this->form_validation->set_rules('direccion','direccion','required');
 			$data["enlaces"] = $enlaces;
 			$data["lista"] = $lista;
-			$data["id_usuario"] = $id_usuario;
+			$data["id_usuario_logueado"] = $id_usuario_logueado;
 			$data["id_usuario_lista"] = $id_usuario_lista;
 			$this->load->view('templates/header');
 			$this->load->view('templates/navbar');
@@ -100,12 +101,12 @@
 		function marcar_favorito(){
 			$this->load->model("Enlace_Model");	
 			$this->load->model("Lista_Model");
-			$id_usuario = 2;
+			$this->load->library(array('ion_auth'))
+			$id_usuario = $this->ion_auth->user()->row()->id;
 			$lista=$this->Lista_Model->dar_lista_favoritos_por_id_usuario($id_usuario);
 			$id_lista= $lista->idLista;
 			$id_enlace = $this->input->get('id', TRUE);
 			$this->Enlace_Model->marcar_favorito($id_enlace,$id_lista);
-
 		}
 		function _render_page($view, $data=null, $render=false){
 
