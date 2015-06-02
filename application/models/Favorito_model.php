@@ -10,7 +10,11 @@
 			return $this->db->delete('favoritos', $data);
 		}
 
-		function esFavorito($data){
+		function esFavorito( $idUsuarioObservado,  $idUsuarioObservador){
+			$data = array(
+				'idUsuarioObservado' => $idUsuarioObservado,
+				'idUsuarioObservador' => $idUsuarioObservador,
+			);
 			$esFavorito = false;
 			if ($this->db->get('favoritos', $data)) {
 				$esFavorito = true;

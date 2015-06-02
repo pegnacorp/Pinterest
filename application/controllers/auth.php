@@ -821,20 +821,17 @@ class Auth extends CI_Controller {
 				redirect("");
 			}	
 			
-			$data['isUser'] = false;		
-			$id;
-			$this->ion_auth->user()->row()->id;
+			$data['isUser'] = false;				
 			$user = $this->ion_auth->user($id)->row();
 			$data['usuario'] = $user;		
 			if ($this->ion_auth->user()->row()->id == $id) {
 				$data['isUser'] = true;			
 			}
 
-			$this->load->model('Favorito_model');			
+						
 			$data['esFavorito'] = false;
-			$this->load->controller('favorito');
-			if ($this->Favorito_model()) {
-				# code...
+			if ($this->esFavorito($id, $user->id)) {
+				$data['esFavorito'] = true;
 			}
 			
 			$data['idUsuarioObservado'] = array('name' => 'idUsuarioObservado',
@@ -855,9 +852,25 @@ class Auth extends CI_Controller {
 		}else{
 			redirect("");//no esta logueado
 		}
-
-
 	}
+
+	function esFavorito( $idUsuarioObservado,  $idUsuarioObservador){
+			$data = array(
+				'idUsuarioObservado' => $idUsuarioObservado,
+				'idUsuarioObservador' => $idUsuarioObservador,
+			);
+			//$esFavorito = false;
+			$result = $this->db->get_where('favoritos', $data);			
+
+			 foreach ($result->result() as $row)
+				{
+					echo "resultados";
+				    echo $row->idUsuarioObservador;
+				    echo $row->idUsuarioObservado;
+				}
+
+			return false;
+		}
 
 
 }
