@@ -24,7 +24,7 @@ class Lista extends CI_Controller {
 		$idLista_limpio = $this->security->xss_clean($idLista);
 		//Se obtiene una sola lista
 		$dato['lista'] = $this->Lista_Model->getLista($idLista_limpio);
-		$dato['enlaces'] = $this->Lista_Model->getEnlaces($idLista_limpio);
+		//$dato['enlaces'] = $this->Lista_Model->getEnlaces($idLista_limpio);
 		$this->load->view('templates/header');
 		$this->load->view('templates/navbar');
 		$this->load->view('lista/view', $dato);

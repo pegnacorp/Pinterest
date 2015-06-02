@@ -5,20 +5,23 @@
 		<table>
 			<tr>
 				<td><label for="nombre">Nombre: </label></td>
+				<td>&nbsp;</td>
 				<td>
 					<input type="text" name="nombre" id="nombre" value="<?php echo set_value('nombre') ?>">
 					<?php echo form_error('nombre'); ?>
 				</td>
 			</tr>
 			<tr>
-				<td><label for="descripcion">Descrición: </label></td>
+				<td><label for="descripcion">Descripción: </label></td>
+				<td>&nbsp;</td>
 				<td>
 					<textarea name="descripcion" id="descripcion" cols="15" rows="2"><?php echo set_value('descripcion'); ?></textarea>
 					<?php echo form_error('descripcion'); ?>
 				</td>
 			</tr>
 			<tr>
-				<td><label for="privacidad">Pivacidad: </label></td>
+				<td><label for="privacidad">Privacidad: </label></td>
+				<td>&nbsp;</td>
 				<td>
 					<select name="privacidad" id="privacidad">
 						<option value="" selected="selected">SELECCIONE</option>
@@ -29,7 +32,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" name="guardar" value="Guardar"></td>
+				<td colspan="3"><input type="submit" name="guardar" value="Guardar"></td>
 			</tr>
 		</table>
 	</form>

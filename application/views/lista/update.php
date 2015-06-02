@@ -11,14 +11,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td><label for="descripcion">Descrición: </label></td>
+				<td><label for="descripcion">Descripción: </label></td>
 				<td>
 					<textarea name="descripcion" id="descripcion" cols="15" rows="2"><?php echo $lista->Descripcion; ?></textarea>
 					<?php echo form_error('descripcion'); ?>
 				</td>
 			</tr>
 			<tr>
-				<td><label for="privacidad">Pivacidad: </label></td>
+				<td><label for="privacidad">Privacidad: </label></td>
 					<td>
 					<select name="privacidad" id="privacidad">
 						<?php if(!strcmp("publica", $lista->Pivacidad)==0): ?>

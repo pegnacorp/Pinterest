@@ -14,6 +14,7 @@
 			?>
 			<tr>
 				<td><a href=<?php echo $list; ?>><?php echo $lista['Nombre']; ?></a></td>
+				<td>&nbsp;</td>
 				<td><a href=<?php echo $update; ?>>EDITAR</a></td>
 				<td><a href=<?php echo $delete; ?>>ELIMINAR</a></td>
 			</tr>
