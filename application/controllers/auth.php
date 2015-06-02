@@ -815,4 +815,49 @@ class Auth extends CI_Controller {
 	$this->load->view('templates/footer');		
 	}
 
+	function show($id = null){
+		if ($this->ion_auth->logged_in()) {
+			if ($id==null) {
+				redirect("");
+			}	
+			
+			$data['isUser'] = false;		
+			$id;
+			$this->ion_auth->user()->row()->id;
+			$user = $this->ion_auth->user($id)->row();
+			$data['usuario'] = $user;		
+			if ($this->ion_auth->user()->row()->id == $id) {
+				$data['isUser'] = true;			
+			}
+
+			$this->load->model('Favorito_model');			
+			$data['esFavorito'] = false;
+			$this->load->controller('favorito');
+			if ($this->Favorito_model()) {
+				# code...
+			}
+			
+			$data['idUsuarioObservado'] = array('name' => 'idUsuarioObservado',
+				'id' => 'idUsuarioObservado',
+				'type' => 'hidden',
+				'value' => $id,
+			);
+			$data['idUsuarioObservador'] = array('name' => 'idUsuarioObservador',
+				'id' => 'idUsuarioObservador',
+				'type' => 'hidden',
+				'value' => $this->ion_auth->user()->row()->id,
+			);
+
+			$this->load->view('templates/header');
+			$this->load->view('templates/navbar');
+			$this->load->view('auth/show', $data);
+			$this->load->view('templates/footer');	
+		}else{
+			redirect("");//no esta logueado
+		}
+
+
+	}
+
+
 }
