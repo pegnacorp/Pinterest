@@ -54,3 +54,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['lista/(:num)/:any'] = 'lista/view/$1';
 $route['lista/update/(:num)'] = 'lista/update/$1';
+$route['lista/delete/(:num)'] = 'lista/delete/$1';

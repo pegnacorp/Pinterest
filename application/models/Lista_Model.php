@@ -30,13 +30,29 @@ class Lista_Model extends CI_Model{
 
     function setLista(){
         $lista = array(
-            'nombre' => $this->input->post('nombre'),
-            'descripcion' => $this->input->post('descripcion'),
-            'privacidad' => $this->input->post('privacidad'),
-            'idUsuario' => '1'
+            'nombre'        => $this->input->post('nombre'),
+            'descripcion'   => $this->input->post('descripcion'),
+            'privacidad'    => $this->input->post('privacidad'),
+            'idUsuario'     => '1'
         );
 
         return $this->db->insert('lista', $lista);
+    }
+
+    function updateLista(){
+        $lista = array(
+            'nombre'        => $this->input->post('nombre'),
+            'descripcion'   => $this->input->post('descripcion'),
+            'privacidad'    => $this->input->post('privacidad'),
+            'idUsuario'     => '1'
+        );
+        $this->db->where('idLista', $this->input->post('idLista'));
+        return $this->db->update('lista', $lista);
+    }
+
+    function deleteLista($idLista){
+        $this->db->where('idLista', $idLista);
+        $this->db->delete('lista');
     }
 }
 ?>
