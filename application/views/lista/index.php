@@ -20,7 +20,17 @@
 				$delete = 'index.php/lista/delete/'.$lista['idLista'];
 			?>
 			<tr>
-				<td><a href=<?php echo $list; ?>><?php echo $lista['Nombre']; ?></a></td>
+				<td>
+					<a href=<?php echo $list; ?>><?php echo $lista['Nombre']; ?></a><br>
+					&nbsp;&nbsp;
+					<?php if(!strcmp("publica", $lista['Privacidad'])==0): ?>
+					<span class="label label-danger">
+					<?php else: ?>
+					<span class="label label-primary">
+					<?php endif ?>
+						<?php echo $lista['Privacidad']; ?>
+					</span>
+				</td>
 				<td>&nbsp;</td>
 				<td><a href=<?php echo $update; ?> class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> EDITAR</a></td>
 				<td><a href=<?php echo $delete; ?> class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> ELIMINAR</a></td>
