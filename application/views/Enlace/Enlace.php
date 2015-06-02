@@ -12,7 +12,7 @@
 	</div>
 	</div>
 	<?php
-$id_usuario = 2;//Modificar
+$id_usuario = $id_usuario_logueado; //Modificar
 if(( $lista->idUsuario ==$id_usuario)){
 ?>
 	<?php $this->load->view("enlace/CrearEnlaceEnLista");
