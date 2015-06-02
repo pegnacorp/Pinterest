@@ -68,7 +68,8 @@ class Lista extends CI_Controller {
 			$this->load->view('lista/update', $dato);
 			$this->load->view('templates/footer');
 		}else{
-			$this->Lista_Model->updateLista();
+			$idLista_limpio = $this->security->xss_clean($idLista);
+			$this->Lista_Model->updateLista($idLista_limpio);
 			redirect('lista','refresh');
 		}
 	}
