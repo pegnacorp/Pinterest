@@ -26,9 +26,11 @@ class Lista extends CI_Controller {
 	}
 
 	function create(){
-		$this->form_validation->set_rules('nombre','Nombre','required|max_length[45]');
-		$this->form_validation->set_rules('descripcion','Descripción','max_length[45]');
-		$this->form_validation->set_rules('privacidad','Privacidad','required');
+		$this->form_validation->set_rules('nombre','Nombre','trim|required|max_length[45]|xss_clean');
+		$this->form_validation->set_rules('descripcion','Descripción','trim|max_length[45]|xss_clean');
+		$this->form_validation->set_rules('privacidad','Privacidad','trim|required|xss_clean');
+
+		$this->form_validation->set_error_delimiters('<span>', '</span>');
 		if($this->form_validation->run() === FALSE){
 			$this->load->view('lista/create');
 		}else{
@@ -41,12 +43,20 @@ class Lista extends CI_Controller {
 
 	}
 
-	function update(){
-
-	}
-
-	function upgrade(){
-
+	function update($idLista){
+		$this->form_validation->set_rules('nombre','Nombre','required|max_length[45]');
+		$this->form_validation->set_rules('descripcion','Descripción','max_length[45]');
+		$this->form_validation->set_rules('privacidad','Privacidad','required');
+		$this->form_validation->set_error_delimiters('<span>', '</span>');
+		if($this->form_validation->run() === FALSE){
+			$idLista_limpio = $this->security->xss_clean($idLista);
+			//Se obtiene una sola lista
+			$dato['lista'] = $this->Lista_Model->getLista($idLista_limpio);
+			$this->load->view('lista/update', $dato);
+		}else{
+			$this->Lista_Model->setLista();
+			redirect('index.php/lista','refresh');
+		}
 	}
 }
 ?>
