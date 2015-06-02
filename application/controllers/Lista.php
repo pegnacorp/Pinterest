@@ -11,7 +11,7 @@ class Lista extends CI_Controller {
 
 	function index(){
 		//Se obtiene el id del usuario logueado
-		$idUsuario = 1;
+		$idUsuario = $this->ion_auth->user()->row()->id;
 		//Se obtienen sus listas
 		$datos['listas'] = $this->Lista_Model->getListas($idUsuario);
 		$this->load->view('templates/header');

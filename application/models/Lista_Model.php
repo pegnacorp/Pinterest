@@ -3,6 +3,7 @@ class Lista_Model extends CI_Model{
 	function __construct(){
 		parent::__construct();
 		$this->load->database();
+        $this->load->library('ion_auth');
 	}
 
 	function getListas($idUsuario = FALSE){
@@ -33,7 +34,7 @@ class Lista_Model extends CI_Model{
             'nombre'        => $this->input->post('nombre'),
             'descripcion'   => $this->input->post('descripcion'),
             'privacidad'    => $this->input->post('privacidad'),
-            'idUsuario'     => '1'
+            'idUsuario'     => $this->ion_auth->user()->row()->id
         );
 
         return $this->db->insert('lista', $lista);
@@ -44,7 +45,7 @@ class Lista_Model extends CI_Model{
             'nombre'        => $this->input->post('nombre'),
             'descripcion'   => $this->input->post('descripcion'),
             'privacidad'    => $this->input->post('privacidad'),
-            'idUsuario'     => '1'
+            'idUsuario'     => $this->ion_auth->user()->row()->id,
         );
         $this->db->where('idLista', $idLista);
         return $this->db->update('lista', $lista);
