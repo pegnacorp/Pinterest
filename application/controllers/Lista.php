@@ -44,14 +44,14 @@ class Lista extends CI_Controller {
 			$this->load->view('templates/footer');
 		}else{
 			$this->Lista_Model->setLista();
-			redirect('index.php/lista','refresh');
+			redirect('lista','refresh');
 		}
 	}
 
 	function delete($idLista){
 		$idLista_limpio = $this->security->xss_clean($idLista);
 		$this->Lista_Model->deleteLista($idLista_limpio);
-		redirect('index.php/lista','refresh');
+		redirect('lista','refresh');
 	}
 
 	function update($idLista){
@@ -69,7 +69,7 @@ class Lista extends CI_Controller {
 			$this->load->view('templates/footer');
 		}else{
 			$this->Lista_Model->updateLista();
-			redirect('index.php/lista','refresh');
+			redirect('lista','refresh');
 		}
 	}
 }

@@ -1,7 +1,7 @@
 <br>
 <h1 align="center">Nueva Lista</h1>
 <div class="container">
-	<form method="post" action="<?php echo base_url();?>index.php/lista/create" class="form-horizontal" role="form">
+  <?php echo form_open('lista/create', array('class'=>'form-horizontal')); ?>
 		<div class="form-group">
     		<label for="nombre" class="col-lg-2 control-label">Nombre: </label>
     		<div class="col-lg-10">
