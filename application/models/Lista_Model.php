@@ -39,14 +39,14 @@ class Lista_Model extends CI_Model{
         return $this->db->insert('lista', $lista);
     }
 
-    function updateLista(){
+    function updateLista($idLista){
         $lista = array(
             'nombre'        => $this->input->post('nombre'),
             'descripcion'   => $this->input->post('descripcion'),
             'privacidad'    => $this->input->post('privacidad'),
             'idUsuario'     => '1'
         );
-        $this->db->where('idLista', $this->input->post('idLista'));
+        $this->db->where('idLista', $idLista);
         return $this->db->update('lista', $lista);
     }
 
