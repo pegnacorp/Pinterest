@@ -44,5 +44,10 @@ class Lista_Model extends CI_Model{
         $this->db->where('idLista', $this->input->post('idLista'));
         return $this->db->update('lista', $lista);
     }
+
+    function deleteLista($idLista){
+        $this->db->where('idLista', $idLista);
+        $this->db->delete('lista');
+    }
 }
 ?>

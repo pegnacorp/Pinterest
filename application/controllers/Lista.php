@@ -39,8 +39,10 @@ class Lista extends CI_Controller {
 		}
 	}
 
-	function delete(){
-
+	function delete($idLista){
+		$idLista_limpio = $this->security->xss_clean($idLista);
+		$this->Lista_Model->deleteLista($idLista_limpio);
+		redirect('index.php/lista','refresh');
 	}
 
 	function update($idLista){

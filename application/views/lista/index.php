@@ -19,11 +19,12 @@
 				$list = 'index.php/lista/'.$lista['idLista'].'/';
 				$list.= url_title(convert_accented_characters($lista['Nombre']),'-');
 				$update = 'lista/update/'.$lista['idLista'];
+				$delete = 'lista/delete/'.$lista['idLista'];
 			?>
 			<tr>
 				<td><?php echo anchor($list, $lista['Nombre']) ?></td>
 				<td><a href=<?php echo $update; ?>>EDITAR</a></td>
-				<td>ELIMINAR</td>
+				<td><a href=<?php echo $delete; ?>>ELIMINAR</a></td>
 			</tr>
 			<?php endforeach ?>
 		</tbody>
