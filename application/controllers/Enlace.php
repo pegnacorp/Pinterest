@@ -17,18 +17,18 @@
     		$this->form_validation->set_rules('nombre','nombre','required');
     		$this->form_validation->set_rules('direccion','direccion','required');
     		if ($this->form_validation->run() == false) { //Fails Validation
-    			$listas = array(
+    			/*$listas = array(
   					1   => 'lista 1',
   					2	=> 'lista 2'
 					);
     			$data['listas'] = $listas;
-            	$this->load->view("enlace/CrearEnlace",$data);
+            	$this->load->view("enlace/CrearEnlace",$data);*/
 
         	}else{
         		$nombre = $this->input->post('nombre');
         		$direccion = $this->input->post('direccion');
         		//$lista = $this->input->post('lista');
-        		$lista = $this->input->get('lista', TRUE);
+        		$lista = $this->input->get('id', TRUE);
         		$enlaces = $this->Enlace_Model->agregar_enlace($nombre,$direccion,$lista);
         		header ("Location: ". base_url()."index.php/enlace/desplegar_enlaces?lista=".$lista);
         	}
@@ -41,8 +41,8 @@
 			$this->load->helper('form');
     		$this->load->library('form_validation');
 			$enlaces = $this->Enlace_Model->dar_enlaces_totales_por_lista($id_lista);
-			if(count($enlaces) === 0){
-				show_404('Enlace.php');	
+			if(count($enlaces) === 10){
+				//show_404('Enlace.php');	
 			}else{
 			$lista = $this->Lista_Model->getLista($id_lista);	
 			$id_usuario_lista = $lista->idUsuario;

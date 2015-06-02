@@ -11,14 +11,20 @@
       	<h4>Descripcion: <?php echo $lista->Descripcion	;?></h4>
 	</div>
 	</div>
-	<?php $this->load->view("enlace/CrearEnlaceEnLista");?>
+	<?php
+$id_usuario = 2;//Modificar
+if(( $lista->idUsuario ==$id_usuario)){
+?>
+	<?php $this->load->view("enlace/CrearEnlaceEnLista");
+
+	}?>
     <div class="centrar-columna">
         <!-- content -->                      
       	<div class="row">
+	<?php if(( $lista->Privacidad === "publico" || ($lista->Privacidad === "privado" &&  $lista->idUsuario ==$id_usuario))){ 
+	foreach ($enlaces as $enlace){
+	?>
 
-
-
-	<?php foreach ($enlaces as $enlace){?>
 	<div class="panel panel-default">
 	<div class="panel-body">
 	<?php $id = $enlace->idEnlace;?>
@@ -30,9 +36,6 @@
 
 		
 		<?php
-	   if($id_usuario != $id_usuario_lista){
-	   		echo "<a href=".base_url()."index.php/enlace/marcar_favorito?id=".$id.">Marcar favorito</A>";
-	   }
 
 	   $direccion = $enlace->Direccion;
 	   	if((esVideo($direccion))=== true){
@@ -46,6 +49,9 @@
 	   			echo"<img class='imagen' src='http://2.bp.blogspot.com/-PlEakBT5MVQ/UPceQaVjeyI/AAAAAAAAC2w/mQkaDMlsW30/s1600/asd.png' class='img-responsive'>";
 	   		}
 	   	}
+	   	if($id_usuario != $id_usuario_lista){
+	   		echo "<a href=".base_url()."index.php/enlace/marcar_favorito?id=".$id.">Marcar favorito</A>";
+	   }
 	   ?>
 	   <ul class="list-group">
             <li class="list-group-item">Nombre: <?php echo $enlace->Nombre;?></li>
@@ -56,7 +62,14 @@
           </div>
         </div>
      	<?php
+
 	}
+
+	}else{
+		echo("Es privado");
+	}
+
+
 ?>
 
 		</div>
