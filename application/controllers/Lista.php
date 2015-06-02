@@ -73,5 +73,14 @@ class Lista extends CI_Controller {
 			redirect('lista','refresh');
 		}
 	}
+
+	function all(){
+		//Se obtienen sus listas
+		$datos['listas'] = $this->Lista_Model->getListas();
+		$this->load->view('templates/header');
+		$this->load->view('templates/navbar');
+		$this->load->view('lista/all', $datos);
+		$this->load->view('templates/footer');
+	}	
 }
 ?>
