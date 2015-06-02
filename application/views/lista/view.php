@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title><?php echo $lista->Nombre ?> - Pinterestellar</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-</head>
-<body>
-<h1 align="center"><?php echo $lista->Nombre ?></h1>
+<br>
+<h1 align="center">
+	<?php echo $lista->Nombre ?><br>
+	<a href="<?php echo base_url();?>index.php/lista" class="btn btn-danger"><span class="glyphicon glyphicon-chevron-left"></span> Regresar</a>
+</h1>
 <div class="container" align="center">
-
+<br><br>
 </div>
-</body>
-</html>

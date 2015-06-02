@@ -6,7 +6,7 @@
   <span class="icon-bar"></span>
   <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand logo">P</a>
+      <a href="index.php" class="navbar-brand logo">P</a>
     </div>
     <nav class="navbar-collapse collapse" role="navigation" style="height: 1px;">
 
