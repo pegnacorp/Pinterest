@@ -802,4 +802,14 @@ class Auth extends CI_Controller {
 		if (!$render) return $view_html;
 	}
 
+	function search()
+	{		
+	$data['query'] = $this->ion_auth_model->get_search();
+
+	$this->load->view('templates/header');
+	$this->load->view('templates/navbar');
+	$this->load->view('auth/users', $data);
+	$this->load->view('templates/footer');		
+	}
+
 }

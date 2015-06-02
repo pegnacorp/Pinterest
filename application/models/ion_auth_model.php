@@ -2268,4 +2268,11 @@ class Ion_auth_model extends CI_Model
 		//just return the string IP address now for better compatibility
 		return $ip_address;
 	}
+
+	public function get_search() {
+	  $match = $this->input->post('search');	  
+	  $this->db->like('username',$match);	  
+	  $query = $this->db->get('users');	  
+	  return $query->result();
+	}
 }
