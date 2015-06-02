@@ -16,13 +16,12 @@
 		<tbody>
 			<?php 
 			foreach ($listas as $lista):
-				$list = 'index.php/lista/'.$lista['idLista'].'/';
-				$list.= url_title(convert_accented_characters($lista['Nombre']),'-');
+				$list = 'lista/'.$lista['idLista'];
 				$update = 'lista/update/'.$lista['idLista'];
 				$delete = 'lista/delete/'.$lista['idLista'];
 			?>
 			<tr>
-				<td><?php echo anchor($list, $lista['Nombre']) ?></td>
+				<td><a href=<?php echo $list; ?>><?php echo $lista['Nombre']; ?></a></td>
 				<td><a href=<?php echo $update; ?>>EDITAR</a></td>
 				<td><a href=<?php echo $delete; ?>>ELIMINAR</a></td>
 			</tr>
