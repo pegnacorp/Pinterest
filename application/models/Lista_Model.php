@@ -9,12 +9,15 @@ class Lista_Model extends CI_Model{
 	function getListas($idUsuario = FALSE){
 		//Se obtienen las listas de la más reciente a la más antigua
 		$this->db->order_by('idLista', 'desc');
-		if($idUsuario === FALSE)
+		if($idUsuario === FALSE){
 			//Se obtienen todas las listas
+            $this->db->where('Privacidad', 'publica');
    			$query = $this->db->get('lista');
-    	else
+        }
+    	else{
     		//Se obtienen las listas de un solo usuario
     		$query = $this->db->get_where('lista', array('idUsuario' => $idUsuario));
+        }
     	return $query->result_array();
     }
 
