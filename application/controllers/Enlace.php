@@ -34,8 +34,12 @@
         	}
 		}
 		function desplegar_enlaces(){
-			$id_lista = $this->input->get('lista', TRUE);
 			$this->load->library(array('ion_auth'));
+			if( !$this->ion_auth->logged_in()){
+				redirect("");
+			}
+			$id_lista = $this->input->get('lista', TRUE);
+			
 			$id_usuario = $this->ion_auth->user()->row()->id;
 			$this->load->model("Enlace_Model");
 			$this->load->model("Lista_Model");
@@ -101,7 +105,7 @@
 		function marcar_favorito(){
 			$this->load->model("Enlace_Model");	
 			$this->load->model("Lista_Model");
-			$this->load->library(array('ion_auth'))
+			$this->load->library(array('ion_auth'));
 			$id_usuario = $this->ion_auth->user()->row()->id;
 			$lista=$this->Lista_Model->dar_lista_favoritos_por_id_usuario($id_usuario);
 			$id_lista= $lista->idLista;
