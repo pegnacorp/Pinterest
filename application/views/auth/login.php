@@ -30,8 +30,7 @@
         <p><?php echo form_submit('submit', lang('login_submit_btn'));?></p>
 
       <?php echo form_close();?>
-
-      <p><a href="auth/forgot_password"><?php echo lang('login_forgot_password');?></a></p>
+      
      <p><?php echo anchor('auth/forgot_password', lang('login_forgot_password'));   ?></p>
   </div>
 
