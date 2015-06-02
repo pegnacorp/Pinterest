@@ -1,6 +1,7 @@
 <br>
 <h1 align="center">Actualizar Lista</h1>
 <div class="container">
+  <?php echo form_open('lista/create', array('class'=>'form-horizontal')); ?>
 	<form method="post" action="<?php echo base_url();?>index.php/lista/update/<?php echo $lista->idLista ?>" class="form-horizontal" role="form">
 		<input type="hidden" name="idLista" value="<?php echo $lista->idLista ?>">
 		<div class="form-group">
