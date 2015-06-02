@@ -9,20 +9,20 @@
 <body>
 	<h1 align="center">Actualizar Lista</h1>
 	<div class="container" align="center">
-		<form method="post" action="<?php echo base_url();?>index.php/lista/create">
-			
+		<form method="post" action="<?php echo base_url();?>index.php/lista/update/<?php echo $lista->idLista ?>">
+			<input type="hidden" name="idLista" value="<?php echo $lista->idLista ?>">
 			<table>
 				<tr>
 					<td><label for="nombre">Nombre: </label></td>
 					<td>
-						<input type="text" name="nombre" id="nombre" value="<?php echo set_value('nombre') ?>">
+						<input type="text" name="nombre" id="nombre" value="<?php echo $lista->Nombre; ?>">
 						<?php echo form_error('nombre'); ?>
 					</td>
 				</tr>
 				<tr>
 					<td><label for="descripcion">Descrición: </label></td>
 					<td>
-						<textarea name="descripcion" id="descripcion" cols="15" rows="2"><?php echo set_value('descripcion'); ?></textarea>
+						<textarea name="descripcion" id="descripcion" cols="15" rows="2"><?php echo $lista->Descripcion; ?></textarea>
 						<?php echo form_error('descripcion'); ?>
 					</td>
 				</tr>
@@ -30,9 +30,13 @@
 					<td><label for="privacidad">Pivacidad: </label></td>
 					<td>
 						<select name="privacidad" id="privacidad">
-							<option value="" selected="selected">SELECCIONE</option>
-							<option value="publica" <?php echo set_select('privacidad', 'publica') ?>>Pública</option>
-							<option value="privada" <?php echo set_select('privacidad', 'privada') ?>>Privada</option>
+							<?php if(!strcmp("publica", $lista->Pivacidad)==0): ?>
+								<option value="publica" selected="selected">Pública</option>
+								<option value="privada">Privada</option>
+							<?php else: ?>
+								<option value="publica">Pública</option>
+								<option value="privada" selected="selected">Privada</option>
+							<?php endif ?>
 						</select>
 						<?php echo form_error('privacidad'); ?>
 					</td>

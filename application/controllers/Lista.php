@@ -26,9 +26,9 @@ class Lista extends CI_Controller {
 	}
 
 	function create(){
-		$this->form_validation->set_rules('nombre','Nombre','trim|required|max_length[45]|xss_clean');
-		$this->form_validation->set_rules('descripcion','Descripción','trim|max_length[45]|xss_clean');
-		$this->form_validation->set_rules('privacidad','Privacidad','trim|required|xss_clean');
+		$this->form_validation->set_rules('nombre','Nombre','trim|required|max_length[45]');
+		$this->form_validation->set_rules('descripcion','Descripción','trim|max_length[45]');
+		$this->form_validation->set_rules('privacidad','Privacidad','trim|required');
 
 		$this->form_validation->set_error_delimiters('<span>', '</span>');
 		if($this->form_validation->run() === FALSE){
@@ -54,7 +54,7 @@ class Lista extends CI_Controller {
 			$dato['lista'] = $this->Lista_Model->getLista($idLista_limpio);
 			$this->load->view('lista/update', $dato);
 		}else{
-			$this->Lista_Model->setLista();
+			$this->Lista_Model->updateLista();
 			redirect('index.php/lista','refresh');
 		}
 	}
