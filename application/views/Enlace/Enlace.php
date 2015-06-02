@@ -11,9 +11,8 @@
       	<h4>Descripcion: <?php echo $lista->Descripcion	;?></h4>
 	</div>
 	</div>
+	<?php $this->load->view("enlace/CrearEnlaceEnLista");?>
     <div class="centrar-columna">
-
-      
         <!-- content -->                      
       	<div class="row">
 
@@ -35,7 +34,7 @@
 	   		echo "<a href=".base_url()."index.php/enlace/marcar_favorito?id=".$id.">Marcar favorito</A>";
 	   }
 
-	   $direccion = 'http://www.astrored.org/astrofotos/d/9585-1/Space+Art+Wallpapers+04.jpg';
+	   $direccion = $enlace->Direccion;
 	   	if((esVideo($direccion))=== true){
 	   	  	$url_video = hacer_embebible_video_youtube($direccion);
 	   	  	echo"<object class='video' data='".$url_video."'></object><br>";

@@ -27,8 +27,10 @@
         	}else{
         		$nombre = $this->input->post('nombre');
         		$direccion = $this->input->post('direccion');
-        		$lista = $this->input->post('lista');
+        		//$lista = $this->input->post('lista');
+        		$lista = $this->input->get('lista', TRUE);
         		$enlaces = $this->Enlace_Model->agregar_enlace($nombre,$direccion,$lista);
+        		header ("Location: ". base_url()."index.php/enlace/desplegar_enlaces?lista=".$lista);
         	}
 		}
 		function desplegar_enlaces(){
@@ -36,12 +38,16 @@
 			$id_usuario = 2;
 			$this->load->model("Enlace_Model");
 			$this->load->model("Lista_Model");
+			$this->load->helper('form');
+    		$this->load->library('form_validation');
 			$enlaces = $this->Enlace_Model->dar_enlaces_totales_por_lista($id_lista);
 			if(count($enlaces) === 0){
 				show_404('Enlace.php');	
 			}else{
 			$lista = $this->Lista_Model->getLista($id_lista);	
 			$id_usuario_lista = $lista->idUsuario;
+			$this->form_validation->set_rules('nombre','nombre','required');
+    		$this->form_validation->set_rules('direccion','direccion','required');
 			$data["enlaces"] = $enlaces;
 			$data["lista"] = $lista;
 			$data["id_usuario"] = $id_usuario;
