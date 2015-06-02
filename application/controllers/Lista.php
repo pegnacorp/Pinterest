@@ -14,7 +14,10 @@ class Lista extends CI_Controller {
 		$idUsuario = 1;
 		//Se obtienen sus listas
 		$datos['listas'] = $this->Lista_Model->getListas($idUsuario);
+		$this->load->view('templates/header');
+		$this->load->view('templates/navbar');
 		$this->load->view('lista/index', $datos);
+		$this->load->view('templates/footer');
 	}
 	
 	function view($idLista){
@@ -22,7 +25,10 @@ class Lista extends CI_Controller {
 		//Se obtiene una sola lista
 		$dato['lista'] = $this->Lista_Model->getLista($idLista_limpio);
 		$dato['enlaces'] = $this->Lista_Model->getEnlaces($idLista_limpio);
+		$this->load->view('templates/header');
+		$this->load->view('templates/navbar');
 		$this->load->view('lista/view', $dato);
+		$this->load->view('templates/footer');
 	}
 
 	function create(){
@@ -32,7 +38,10 @@ class Lista extends CI_Controller {
 
 		$this->form_validation->set_error_delimiters('<span>', '</span>');
 		if($this->form_validation->run() === FALSE){
+			$this->load->view('templates/header');
+			$this->load->view('templates/navbar');
 			$this->load->view('lista/create');
+			$this->load->view('templates/footer');
 		}else{
 			$this->Lista_Model->setLista();
 			redirect('index.php/lista','refresh');
@@ -54,7 +63,10 @@ class Lista extends CI_Controller {
 			$idLista_limpio = $this->security->xss_clean($idLista);
 			//Se obtiene una sola lista
 			$dato['lista'] = $this->Lista_Model->getLista($idLista_limpio);
+			$this->load->view('templates/header');
+			$this->load->view('templates/navbar');
 			$this->load->view('lista/update', $dato);
+			$this->load->view('templates/footer');
 		}else{
 			$this->Lista_Model->updateLista();
 			redirect('index.php/lista','refresh');

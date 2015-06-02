@@ -4,7 +4,7 @@
 		<meta charset="utf-8">		
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<base href="http://localhost/ProyectoMVC/Pinterestelar/" />
+		<base href="<?php echo base_url(); ?>" />
 		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>

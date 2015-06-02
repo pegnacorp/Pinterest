@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Listas - Pinterestellar</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-</head>
-<body>
+<br>
 <h1 align="center">MIS LISTAS</h1>
 <div class="container" align="center">
 	<table>
@@ -16,9 +8,9 @@
 		<tbody>
 			<?php 
 			foreach ($listas as $lista):
-				$list = 'lista/'.$lista['idLista'];
-				$update = 'lista/update/'.$lista['idLista'];
-				$delete = 'lista/delete/'.$lista['idLista'];
+				$list = 'index.php/lista/'.$lista['idLista'];
+				$update = 'index.php/lista/update/'.$lista['idLista'];
+				$delete = 'index.php/lista/delete/'.$lista['idLista'];
 			?>
 			<tr>
 				<td><a href=<?php echo $list; ?>><?php echo $lista['Nombre']; ?></a></td>
@@ -27,8 +19,6 @@
 			</tr>
 			<?php endforeach ?>
 		</tbody>
-		
 	</table>
+	<br><br><br>
 </div>
-</body>
-</html>
