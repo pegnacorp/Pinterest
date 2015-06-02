@@ -482,7 +482,10 @@ class Auth extends CI_Controller {
 			//check to see if we are creating the user
 			//redirect them back to the admin page
 			$this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect("auth", 'refresh');
+			$this->load->view('templates/header');
+			$this->load->view('templates/navbar');
+			$this->load->view('auth/success');
+			$this->load->view('templates/footer');
 		}
 		else
 		{

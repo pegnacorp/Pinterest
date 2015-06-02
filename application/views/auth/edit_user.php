@@ -1,6 +1,7 @@
 <div class="container">
-  <h1><?php echo lang('edit_user_heading');?><strong><?php echo " ".$user->username; ?></strong></h1>
-<p><?php echo lang('edit_user_subheading');?></p>
+  <div class="row">
+    <h1><?php echo lang('edit_user_heading');?><strong><?php echo " ".$user->username; ?></strong></h1>
+  <p><?php echo lang('edit_user_subheading');?></p>
 
 <div id="infoMessage"><?php echo $message;?></div>
 
@@ -51,5 +52,5 @@
 
 <?php echo form_close();?>
 
-
+  </div>
 </div>
