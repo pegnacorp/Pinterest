@@ -7,7 +7,7 @@
     <meta name="keywords" content="" />
 </head>
 <body>
-	<h1 align="center">Nueva Lista</h1>
+	<h1 align="center">Actualizar Lista</h1>
 	<div class="container" align="center">
 		<form method="post" action="<?php echo base_url();?>index.php/lista/create">
 			
