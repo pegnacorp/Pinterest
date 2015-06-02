@@ -9,14 +9,28 @@
       <a href="/" class="navbar-brand logo">P</a>
     </div>
     <nav class="navbar-collapse collapse" role="navigation" style="height: 1px;">
-    <form class="navbar-form navbar-left">
-        <div class="input-group input-group-sm" style="max-width:360px;">
-          <input type="text" class="form-control" placeholder="Buscar" name="srch-term" id="srch-term">
-          <div class="input-group-btn">
-            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-          </div>
-        </div>
-    </form>
+
+    <?= form_open('auth/search', 'class="navbar-form navbar-left"');?>
+    <div class="input-group input-group-sm" style="max-width:360px;">
+    <?php $search = array(
+                          'name'=>'search',
+                          'class' => "form-control",
+                          'placeholder'=> "Buscar"
+                          );?>
+
+    <?=form_input($search);?>
+
+    <div class="input-group-btn">    
+    <button class="btn btn-default" type="submit" ><i class="glyphicon glyphicon-search"></i></button>
+    </input>
+    </p>
+     </div>
+    </div>
+    <?=form_close();?>                
+         
+        
+    
+
     <ul class="nav navbar-nav">
       <li>
         <a href="index.php"><i class="glyphicon glyphicon-home"></i> Inicio</a>
